@@ -1,0 +1,39 @@
+@inject IRandomService randomService;
+@{
+    ViewData["Title"] = "Random";
+}
+@ViewData["OTP"];
+<div class="text-center">
+    <h1 class="display-4">Random Service</h1>
+</div>
+@{
+    var times = 5;
+    var otpValues = new string[times];
+    var filenameValues = new string[times];
+    var saltValues = new string[times];
+
+    for (int i = 0; i < times; i++)
+    {
+        otpValues[i] = randomService.RandomOTP(6);
+        filenameValues[i] = randomService.RandomNameFile(4);
+        saltValues[i] = randomService.RandomSalt(3);
+    }
+    
+    <table>
+        <tr>
+            <th>№</th>
+            <th>OTP</th>
+            <th>Filename</th>
+            <th>Salt</th>
+        </tr>
+        @for (int i = 0; i<times;i++)
+        {
+            <tr>
+                <th>@(i+1)</th>
+                <th>@otpValues[i]</th>
+                <th>@filenameValues[i]</th>
+                <th>@saltValues[i]</th>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,81 @@
+@model ASP_.Net_Core_Class_Home_Work.Models.Home.Razor.RazorPageModel;
+@{
+    ViewData["Title"]=@Model.Tittle;
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.HeaderPage</h1>
+
+</div>
+<p>
+    @Model.AboutRazor;
+</p>
+<h2>@Model.H2Expressions</h2>
+<p>
+    @Model.AboutExpressions
+</p>
+
+<h2>@Model.H2Instructions</h2>
+<p>
+    @Model.AboutInstruction
+</p>
+@{
+    String str = "Hello, World!!";
+    String[] arr = { "line1", "line2", "line3" };
+}
+<p>
+    Змінні, оголошені в інструкціях можна вивести синтаксисом виразів
+    &commat;Line1 = @str;
+    <br/>
+    &commat;Line+! = @str+"!";
+    <br/>
+    &commat;Line+!=@(str + "!")
+</p>
+<h2>Операції</h2>
+<p>
+    Razor містить власні конструкції для ряду операцій мови С#:
+    <code>&commat;if(){...}</code>,
+    <code>&commat;for(){...}</code>,
+    <code>&commat;foreach(){...}</code>...
+</p>
+@if(str.Length > 10)
+{
+    <p>Довжина рядка більша за 10 (@str.Length)</p>
+}
+else
+{
+    <p>Довжина рядка Не більша за 10 (@str.Length)</p>
+}
+@foreach(String line in arr)
+{
+    <p>• @line</p>
+}
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Значення</th>
+    </tr>
+    @for (int i = 0; i<arr.Length; i++)
+    {
+        <tr>
+            <th>@i</th>
+            <th>@arr[i]</th>
+        </tr>
+    }
+</table>
+<table>
+    <tr>
+        <th>Индекс</th>
+        @for (int i = 0; i < arr.Length; i++)
+        {
+            <td>@(i + 1).</td>
+        }
+    </tr>
+    <tr>
+        <th>Значення</th>
+        @for (int i = 0; i < arr.Length; i++)
+        {
+            <td>@arr[i]</td>
+        }
+    </tr>
+</table>

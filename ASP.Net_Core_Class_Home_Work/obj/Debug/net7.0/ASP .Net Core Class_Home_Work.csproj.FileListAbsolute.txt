@@ -1,0 +1,31 @@
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/appsettings.Development.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/appsettings.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/ASP .Net Core Class_Home_Work.staticwebassets.runtime.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/ASP .Net Core Class_Home_Work
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/ASP .Net Core Class_Home_Work.deps.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/ASP .Net Core Class_Home_Work.runtimeconfig.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/ASP .Net Core Class_Home_Work.dll
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/bin/Debug/net7.0/ASP .Net Core Class_Home_Work.pdb
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.csproj.AssemblyReference.cache
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.GeneratedMSBuildEditorConfig.editorconfig
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.AssemblyInfoInputs.cache
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.AssemblyInfo.cs
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.csproj.CoreCompileInputs.cache
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.MvcApplicationPartsAssemblyInfo.cache
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.RazorAssemblyInfo.cache
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.RazorAssemblyInfo.cs
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets/msbuild.ASP .Net Core Class_Home_Work.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets/msbuild.build.ASP .Net Core Class_Home_Work.props
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.ASP .Net Core Class_Home_Work.props
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.ASP .Net Core Class_Home_Work.props
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets.pack.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets.build.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/staticwebassets.development.json
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/scopedcss/bundle/ASP .Net Core Class_Home_Work.styles.css
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/scopedcss/projectbundle/ASP .Net Core Class_Home_Work.bundle.scp.css
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.dll
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/refint/ASP .Net Core Class_Home_Work.dll
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.pdb
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ASP .Net Core Class_Home_Work.genruntimeconfig.cache
+/Users/popov911/Desktop/ASP .NET Core/ASP .Net Core Class_Home_Work/ASP .Net Core Class_Home_Work/obj/Debug/net7.0/ref/ASP .Net Core Class_Home_Work.dll

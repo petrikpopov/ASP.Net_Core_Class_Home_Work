@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/ASP .Net Core Class_Home_Work.props" />
+</Project>

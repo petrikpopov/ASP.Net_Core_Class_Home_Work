@@ -1,0 +1,49 @@
+@using ASP_.Net_Core_Class_Home_Work.Models.Home.Model
+@*Прийом моделі представлення здійснюється за допомогою наступної інструкціі*@
+@model ASP_.Net_Core_Class_Home_Work.Models.Home.Model.PageModel;
+@{
+    @*Доступ до переданої моделі-через спеціальне поле Model*@
+    ViewData["Title"] = Model.TittlePage;
+}
+
+<div class="text-center">
+    @*Доступ до моделі з розмітки - через сімвол @ *@
+    <h1 class="display-4">@Model.TabHeader</h1>
+</div>
+<p>
+   @Model.AboutModel;
+</p>
+<h3>@Model.H3ViewModel</h3>
+<p>
+   @Model.AboutViewMode;
+</p>
+<h2>@Model.FormModel</h2>
+<p>
+   @Model.AboutModelForm
+</p>
+<form method="post">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-name"><i class="bi bi-person-circle"></i></span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="user-name" name="user-name">
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-email"><i class="bi bi-envelope-arrow-up"></i></span>
+                <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="user-email" name="user-email">
+            </div>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-danger">Register</button>
+        </div>
+    </div>
+</form>
+@if (@Model.FormModel.UserName != null)
+{
+    <p>
+        UserName:@Model.FormModel.UserName;
+        UserEmail:@Model.FormModel.UserEmail;
+    </p>
+}
