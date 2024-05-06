@@ -1,0 +1,10 @@
+@model ASP_.Net_Core_Class_Home_Work.Models.Content.Category.ContentCategoryPageModel;
+
+@{
+    Layout = "_ContentLayout";
+}
+<h1>@Model.Category.Name</h1> 
+@foreach (var location in Model.Locations)
+{
+    @Html.DisplayFor(m=>location,"LocationTemplate")
+}

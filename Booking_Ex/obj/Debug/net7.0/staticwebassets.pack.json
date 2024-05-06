@@ -1,0 +1,629 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/obj/Debug/net7.0/scopedcss/projectbundle/Booking_Ex.bundle.scp.css",
+      "PackagePath": "staticwebassets/Booking_Ex.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/.DS_Store",
+      "PackagePath": "staticwebassets/img/.DS_Store"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/.DS_Store",
+      "PackagePath": "staticwebassets/img/Content/.DS_Store"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/008622f3-6363-40a7-81e7-101ad2b894da.jpeg",
+      "PackagePath": "staticwebassets/img/Content/008622f3-6363-40a7-81e7-101ad2b894da.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/06587410-44af-4d5d-8581-0145347bf43d.jpg",
+      "PackagePath": "staticwebassets/img/Content/06587410-44af-4d5d-8581-0145347bf43d.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/09B2381F-452A-4621-8317-CCE6E3EE1A20.jpg",
+      "PackagePath": "staticwebassets/img/Content/09B2381F-452A-4621-8317-CCE6E3EE1A20.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/0ab6013e-435e-4c7b-be9f-bbe65dcbb565.jpg",
+      "PackagePath": "staticwebassets/img/Content/0ab6013e-435e-4c7b-be9f-bbe65dcbb565.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/11121588-a62a-41f5-84ab-942ea4021c1a.jpg",
+      "PackagePath": "staticwebassets/img/Content/11121588-a62a-41f5-84ab-942ea4021c1a.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/1123b2b0-aa11-4bbe-a562-0afb3c7ec8fb.jpg",
+      "PackagePath": "staticwebassets/img/Content/1123b2b0-aa11-4bbe-a562-0afb3c7ec8fb.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/1b4862b9-61bc-433d-b1a9-87c50f2f3efa.jpg",
+      "PackagePath": "staticwebassets/img/Content/1b4862b9-61bc-433d-b1a9-87c50f2f3efa.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/1de81977-63f0-4919-ab4b-138b361de12f.jpg",
+      "PackagePath": "staticwebassets/img/Content/1de81977-63f0-4919-ab4b-138b361de12f.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/1e826d89-c626-49cb-a4e9-577c6ad74557.jpg",
+      "PackagePath": "staticwebassets/img/Content/1e826d89-c626-49cb-a4e9-577c6ad74557.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/22d173a4-1611-4865-a9c2-6c22c8da08ce.jpg",
+      "PackagePath": "staticwebassets/img/Content/22d173a4-1611-4865-a9c2-6c22c8da08ce.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/2c17abf3-65fc-4df1-82b9-10b22fc68b84.jpg",
+      "PackagePath": "staticwebassets/img/Content/2c17abf3-65fc-4df1-82b9-10b22fc68b84.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/2f184531-45f9-4b07-b8c6-7d756558026f.jpg",
+      "PackagePath": "staticwebassets/img/Content/2f184531-45f9-4b07-b8c6-7d756558026f.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/307cfaa1-f07e-4c2c-9fee-d9194554019d.jpg",
+      "PackagePath": "staticwebassets/img/Content/307cfaa1-f07e-4c2c-9fee-d9194554019d.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/32646a5d-71cf-4d47-9792-19701b45205d.jpg",
+      "PackagePath": "staticwebassets/img/Content/32646a5d-71cf-4d47-9792-19701b45205d.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/36e1c106-ca3e-459d-90e7-8af537d20449.jpg",
+      "PackagePath": "staticwebassets/img/Content/36e1c106-ca3e-459d-90e7-8af537d20449.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/39dfb4c0-a3fb-4ef7-9e4d-4ea931b04811.jpg",
+      "PackagePath": "staticwebassets/img/Content/39dfb4c0-a3fb-4ef7-9e4d-4ea931b04811.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/3b6170ad-02d3-46ff-8ba6-d4c7d3b893d9.jpg",
+      "PackagePath": "staticwebassets/img/Content/3b6170ad-02d3-46ff-8ba6-d4c7d3b893d9.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/407061a3-2c28-42ad-a7e3-637cb8326eb0.jpg",
+      "PackagePath": "staticwebassets/img/Content/407061a3-2c28-42ad-a7e3-637cb8326eb0.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/4f2194dc-a96b-4160-ab3a-ae988d15cbfd.jpg",
+      "PackagePath": "staticwebassets/img/Content/4f2194dc-a96b-4160-ab3a-ae988d15cbfd.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/5e2adffe-380a-41c5-b524-c710d9da1b3d.jpeg",
+      "PackagePath": "staticwebassets/img/Content/5e2adffe-380a-41c5-b524-c710d9da1b3d.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/60e628e2-ee1e-4a06-8109-01e4c47c0283.jpg",
+      "PackagePath": "staticwebassets/img/Content/60e628e2-ee1e-4a06-8109-01e4c47c0283.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/694ea393-1398-4205-8089-0791fb3625ea.jpg",
+      "PackagePath": "staticwebassets/img/Content/694ea393-1398-4205-8089-0791fb3625ea.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/6a42e8ed-f9f7-40c5-9f76-086c460f2e01.jpeg",
+      "PackagePath": "staticwebassets/img/Content/6a42e8ed-f9f7-40c5-9f76-086c460f2e01.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/6d091d8d-f01d-480a-ad79-d0313e4430de.jpg",
+      "PackagePath": "staticwebassets/img/Content/6d091d8d-f01d-480a-ad79-d0313e4430de.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/75f9b19a-b5c6-4c18-8b52-a32299d2cafc.jpeg",
+      "PackagePath": "staticwebassets/img/Content/75f9b19a-b5c6-4c18-8b52-a32299d2cafc.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/76cb3da1-3e25-4557-9967-7d377eea765a.jpg",
+      "PackagePath": "staticwebassets/img/Content/76cb3da1-3e25-4557-9967-7d377eea765a.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/7c64dbdc-167a-4fa5-b80e-5c930f8f2f27.jpg",
+      "PackagePath": "staticwebassets/img/Content/7c64dbdc-167a-4fa5-b80e-5c930f8f2f27.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/81d40206-68b3-4c09-a907-642d2b3bf693.jpg",
+      "PackagePath": "staticwebassets/img/Content/81d40206-68b3-4c09-a907-642d2b3bf693.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/836866bc-856e-4501-9499-7d1657a9fdba.jpg",
+      "PackagePath": "staticwebassets/img/Content/836866bc-856e-4501-9499-7d1657a9fdba.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/8476cf62-298f-482e-a5ee-5067d9a13f42.jpg",
+      "PackagePath": "staticwebassets/img/Content/8476cf62-298f-482e-a5ee-5067d9a13f42.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/868b6e57-bb70-48c2-8bcd-b7ed7af7a32e.jpg",
+      "PackagePath": "staticwebassets/img/Content/868b6e57-bb70-48c2-8bcd-b7ed7af7a32e.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/876d0096-d553-428e-a555-004de0138fe7.jpg",
+      "PackagePath": "staticwebassets/img/Content/876d0096-d553-428e-a555-004de0138fe7.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/910d21ff-b151-4c0b-a9c3-5f57fc6fce99.webp",
+      "PackagePath": "staticwebassets/img/Content/910d21ff-b151-4c0b-a9c3-5f57fc6fce99.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/91d4bd37-62cc-4bcd-b33b-2d4d7075cfb1.jpg",
+      "PackagePath": "staticwebassets/img/Content/91d4bd37-62cc-4bcd-b33b-2d4d7075cfb1.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/96787a34-b7cc-4fee-98ab-cd9269d80723.jpg",
+      "PackagePath": "staticwebassets/img/Content/96787a34-b7cc-4fee-98ab-cd9269d80723.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/9837b9d1-0ebe-41f0-b057-bbae7cf3e34f.jpeg",
+      "PackagePath": "staticwebassets/img/Content/9837b9d1-0ebe-41f0-b057-bbae7cf3e34f.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/9de10a11-e5d7-4aba-8cec-5aef1ce1318f.jpg",
+      "PackagePath": "staticwebassets/img/Content/9de10a11-e5d7-4aba-8cec-5aef1ce1318f.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/a37610c4-0db2-4edb-92ac-f4acb3cac6b8.jpeg",
+      "PackagePath": "staticwebassets/img/Content/a37610c4-0db2-4edb-92ac-f4acb3cac6b8.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/a6c0623c-bb50-472a-b0d0-f915d34c890a.jpg",
+      "PackagePath": "staticwebassets/img/Content/a6c0623c-bb50-472a-b0d0-f915d34c890a.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/ac10432f-4eb3-4edb-a8d1-e81499443e08.jpeg",
+      "PackagePath": "staticwebassets/img/Content/ac10432f-4eb3-4edb-a8d1-e81499443e08.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/ad2ef4b7-4393-43c0-b86f-cc39053a892a.jpg",
+      "PackagePath": "staticwebassets/img/Content/ad2ef4b7-4393-43c0-b86f-cc39053a892a.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/afb9ed64-b526-4163-b9d2-2bb5600a9a70.jpg",
+      "PackagePath": "staticwebassets/img/Content/afb9ed64-b526-4163-b9d2-2bb5600a9a70.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/b0109e8f-dceb-4d53-ab13-3a0f4f1206fd.png",
+      "PackagePath": "staticwebassets/img/Content/b0109e8f-dceb-4d53-ab13-3a0f4f1206fd.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/b4c2c65e-a330-41ee-ba79-d4d39173ffd8.jpg",
+      "PackagePath": "staticwebassets/img/Content/b4c2c65e-a330-41ee-ba79-d4d39173ffd8.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/c0fe7aa2-f4b8-40c1-adef-f4df5adb2503.jpg",
+      "PackagePath": "staticwebassets/img/Content/c0fe7aa2-f4b8-40c1-adef-f4df5adb2503.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/c3014032-59da-4cd6-a4ab-ee915c44a391.jpg",
+      "PackagePath": "staticwebassets/img/Content/c3014032-59da-4cd6-a4ab-ee915c44a391.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/c42b70de-1d66-42e2-bf58-5026786582d1.jpg",
+      "PackagePath": "staticwebassets/img/Content/c42b70de-1d66-42e2-bf58-5026786582d1.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/ca86ef3e-c9d2-4737-a3ae-e09567651a71.jpeg",
+      "PackagePath": "staticwebassets/img/Content/ca86ef3e-c9d2-4737-a3ae-e09567651a71.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/cbf951b6-eed6-47b1-89fb-c107183cbbff.jpeg",
+      "PackagePath": "staticwebassets/img/Content/cbf951b6-eed6-47b1-89fb-c107183cbbff.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/ce7e54e8-d2b0-4a23-a67f-82459dfa7cd5.jpg",
+      "PackagePath": "staticwebassets/img/Content/ce7e54e8-d2b0-4a23-a67f-82459dfa7cd5.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/d2aad239-193a-4a42-8dab-e73f5c8bc93b.jpg",
+      "PackagePath": "staticwebassets/img/Content/d2aad239-193a-4a42-8dab-e73f5c8bc93b.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/e43705dd-f1c3-41bf-926c-13ffc8c75a54.png",
+      "PackagePath": "staticwebassets/img/Content/e43705dd-f1c3-41bf-926c-13ffc8c75a54.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/e7072e02-e353-4b0a-bd52-55b9e189adb6.jpg",
+      "PackagePath": "staticwebassets/img/Content/e7072e02-e353-4b0a-bd52-55b9e189adb6.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/e8c6ede6-bda5-450d-a612-cc28af6f5883.png",
+      "PackagePath": "staticwebassets/img/Content/e8c6ede6-bda5-450d-a612-cc28af6f5883.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/ec267b87-9f27-401f-8e42-53163f26b976.webp",
+      "PackagePath": "staticwebassets/img/Content/ec267b87-9f27-401f-8e42-53163f26b976.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/f0e6a864-7125-4bff-806b-2309a1cc16e9.jpg",
+      "PackagePath": "staticwebassets/img/Content/f0e6a864-7125-4bff-806b-2309a1cc16e9.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/f2405e98-c87f-44ec-8993-9927be22c16b.jpg",
+      "PackagePath": "staticwebassets/img/Content/f2405e98-c87f-44ec-8993-9927be22c16b.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/f9ac2f65-df10-482c-804c-a594d366bd9f.jpg",
+      "PackagePath": "staticwebassets/img/Content/f9ac2f65-df10-482c-804c-a594d366bd9f.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/fe179951-9116-4b3c-977b-426e3719e378.jpg",
+      "PackagePath": "staticwebassets/img/Content/fe179951-9116-4b3c-977b-426e3719e378.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/no-image.jpg",
+      "PackagePath": "staticwebassets/img/Content/no-image.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/!uuvfp.webp",
+      "PackagePath": "staticwebassets/img/avatars/!uuvfp.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/#pbd!r.docx",
+      "PackagePath": "staticwebassets/img/avatars/#pbd!r.docx"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/$q!psf.webp",
+      "PackagePath": "staticwebassets/img/avatars/$q!psf.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/$wbcdu.webp",
+      "PackagePath": "staticwebassets/img/avatars/$wbcdu.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/@#kycq.webp",
+      "PackagePath": "staticwebassets/img/avatars/@#kycq.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/ca20e283-ee55-4b1a-adbf-bfef3445e1a1.jpeg",
+      "PackagePath": "staticwebassets/img/avatars/ca20e283-ee55-4b1a-adbf-bfef3445e1a1.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/cbgyuk.jpg",
+      "PackagePath": "staticwebassets/img/avatars/cbgyuk.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/cmlklp.webp",
+      "PackagePath": "staticwebassets/img/avatars/cmlklp.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/fesnwo.jpg",
+      "PackagePath": "staticwebassets/img/avatars/fesnwo.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/hmrc@o.png",
+      "PackagePath": "staticwebassets/img/avatars/hmrc@o.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/iu$yxw.webp",
+      "PackagePath": "staticwebassets/img/avatars/iu$yxw.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/j@ofxr.webp",
+      "PackagePath": "staticwebassets/img/avatars/j@ofxr.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/jvhszd.png",
+      "PackagePath": "staticwebassets/img/avatars/jvhszd.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/k!v$ek.webp",
+      "PackagePath": "staticwebassets/img/avatars/k!v$ek.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/ljnijx.webp",
+      "PackagePath": "staticwebassets/img/avatars/ljnijx.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/lt@klu.jpg",
+      "PackagePath": "staticwebassets/img/avatars/lt@klu.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/no-avatar.png",
+      "PackagePath": "staticwebassets/img/avatars/no-avatar.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/nwiz.webp",
+      "PackagePath": "staticwebassets/img/avatars/nwiz.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/pcndqr.png",
+      "PackagePath": "staticwebassets/img/avatars/pcndqr.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/pzyyiz.png",
+      "PackagePath": "staticwebassets/img/avatars/pzyyiz.png"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/qwxllm.jpg",
+      "PackagePath": "staticwebassets/img/avatars/qwxllm.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/s#mixp.webp",
+      "PackagePath": "staticwebassets/img/avatars/s#mixp.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/soytmc.jpg",
+      "PackagePath": "staticwebassets/img/avatars/soytmc.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/t!mlme.txt",
+      "PackagePath": "staticwebassets/img/avatars/t!mlme.txt"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/uzfvnp.jpg",
+      "PackagePath": "staticwebassets/img/avatars/uzfvnp.jpg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/wo#$ib.webp",
+      "PackagePath": "staticwebassets/img/avatars/wo#$ib.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/avatars/xht#ln.webp",
+      "PackagePath": "staticwebassets/img/avatars/xht#ln.webp"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/disneylandHotel.jpeg",
+      "PackagePath": "staticwebassets/img/disneylandHotel.jpeg"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.Booking_Ex.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.Booking_Ex.props",
+      "PackagePath": "build\\Booking_Ex.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Booking_Ex.props",
+      "PackagePath": "buildMultiTargeting\\Booking_Ex.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.Booking_Ex.props",
+      "PackagePath": "buildTransitive\\Booking_Ex.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

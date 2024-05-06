@@ -1,0 +1,106 @@
+@model ASP_.Net_Core_Class_Home_Work.Models.Home.Singup.SignupPageModel;
+@{
+    ViewData["Title"] = "SignUp";
+    bool isSignupSuccess = Model.FormModel?.HasData == true && Model.ValidationErrors.Count == 0;
+    bool isFormInvalid = @Model.FormModel?.HasData == true && Model.ValidationErrors.Count > 0;
+    string nameClass = isFormInvalid ?(Model.ValidationErrors?.ContainsKey("UserName") ?? false ? "is-invalid":"is-valid" ) : "";
+    string emailClass = isFormInvalid ?(Model.ValidationErrors?.ContainsKey("UserEmail") ?? false ? "is-invalid":"is-valid"  ) : "";
+    string birthday = isFormInvalid ? (Model.ValidationErrors?.ContainsKey("UserBirthdate") ?? false ? "is-invalid" : "is-valid") : "";
+    string passwordClass = isFormInvalid ? (Model.ValidationErrors?.ContainsKey("Password") ?? false ? "is-invalid" : "is-valid") : "";
+    string repeatpasswordClass = isFormInvalid ? (Model.ValidationErrors?.ContainsKey("Repeat") ?? false ? "is-invalid" : "is-valid") : "";
+    string avatarClass = isFormInvalid ? (Model.ValidationErrors?.ContainsKey("UserAvatar") ?? false ? "is-invalid" : "is-valid") : "";
+    string argeeClass = isFormInvalid ? (Model.ValidationErrors?.ContainsKey("Agreement") ?? false ? "is-invalid" : "is-valid") : "";
+}
+
+@if (isFormInvalid)
+{
+    <div class="alert alert-danger" role="alert"> Виникли проблеми з перевіркою данних форми!</div>
+}
+@if (isSignupSuccess)
+{
+    <div class="alert alert-success" role="alert">
+       Вы успешно прошли регистрацию!
+    </div>
+}
+
+<form method="post" enctype="multipart/form-data" class="myformRegister">
+ 
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-name"><i class="bi bi-person-vcard"></i></span>
+                <input type="text" class="form-control @nameClass" placeholder="Username" name="user-name"
+                       aria-label="Username" aria-describedby="user-name" value="@(isFormInvalid ? Model.FormModel!.UserName : "" )">
+                <div class="invalid-feedback">Ім'я не може бути порожнім!</div>
+            </div>
+           
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-email"><i class="bi bi-envelope-at"></i></span>
+                <input type="text" class="form-control @emailClass" placeholder="Email"
+                       name="user-email"
+                       aria-label="Email" aria-describedby="user-email" value="@(isFormInvalid ? Model.FormModel!.UserEmail : "")">
+                 <div class="invalid-feedback">Email повинен бути заповнений!</div>
+            </div>
+        </div>
+    
+
+  
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-password"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control @passwordClass" placeholder="Пароль"
+                       name="user-password"
+                       aria-label="User-password" aria-describedby="user-password" value="@(isFormInvalid ? Model.FormModel!.Password :"")">
+                <div class="invalid-feedback">Пароль містить неправильну форму!</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-repeat"><i class="bi bi-unlock"></i></span>
+                <input type="password" class="form-control @repeatpasswordClass" placeholder="Повторіть пароль"
+                       name="user-repeat"
+                       aria-label="Repeat" aria-describedby="user-repeat" value="@(isFormInvalid ? Model.FormModel!.Repeat : "")">
+                <div class="invalid-feedback">Паролі не совпадаюсь!</div>
+            </div>
+        </div>
+   
+
+   
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="user-birthdate"><i class="bi bi-cake2"></i></span>
+                <input type="date" class="form-control @birthday" 
+                       name="user-birthdate"
+                       aria-label="User-birthdate" aria-describedby="user-birthdate" >
+                <div class="invalid-feedback">Укажите дату рождения!</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="user-avatar"><i class="bi bi-person-circle"></i></label>
+                <input type="file" class="form-control @avatarClass" name="user-avatar" id="user-avatar" value="@(isFormInvalid?Model.FormModel!.SavedAvaterFileName:"")">
+                 <div class="invalid-feedback">Не корректное расширение!</div>
+            </div>
+        </div>
+   
+
+
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input @argeeClass" type="checkbox"
+                       value="true" name="user-agreement" id="agreement">
+                
+                <label class="form-check-label" for="agreement">
+                    Погоджуюсь із правилами сайту
+                </label>
+                <div class="invalid-feedback">Вы должны согласиться с правиламы при регистрации!</div>
+            </div>
+        </div>
+        
+
+    <div class="col">
+        
+        <button type="submit" class="btn btn-primary" name="signup-button" value="true">Реєстрація</button>
+    </div>
+</form>

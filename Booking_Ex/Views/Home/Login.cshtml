@@ -1,0 +1,34 @@
+<div class="form-login">
+    <h3>Вход в аккаунт</h3>
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-person-vcard"></i></span>
+                <input type="text" class="form-control" id="auth-name" placeholder="Email" name="auth-name"
+                       aria-label="Username" aria-describedby="auth-name">
+               
+            </div>
+            <div id="auth-emailError" class="alert alert-danger visually-hidden" role="alert"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="auth-password" placeholder="Пароль"
+                       name="auth-password"
+                       aria-label="User-password" aria-describedby="user-password">
+            </div>
+            <div id="auth-passwordError" class="alert alert-danger visually-hidden" role="alert"></div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div id="auth-message" class="alert alert-warning visually-hidden" role="alert">
+            Вхід скасовано, перевірте введені данні!
+        </div>
+        <button id="auth-button" type="submit" class="btn btn-primary" name="auth-button" value="true">Вхід</button>
+    </div>
+</div>
+

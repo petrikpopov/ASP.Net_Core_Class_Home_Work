@@ -1,0 +1,69 @@
+@model ASP_.Net_Core_Class_Home_Work.Models.Content.Index.ContentIndexPageModel;
+@using System.Security.Claims
+@{
+   Layout = "_ContentLayout";
+    bool isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
+    string role = isAuthenticated? Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Role).Value: "";
+    ViewData["role"] = role;
+}
+<div class="card-group row row-cols-1 row-cols-md-3 g-4">
+  @foreach (var categoty in Model.categories)
+  {
+    @Html.DisplayFor(m=>categoty, "Category")
+  }  
+</div>
+@if ("Admin".Equals(role))
+{
+  <hr/>
+    <form id="category-form" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="category-name"><i class="bi bi-person-vcard"></i></span>
+                    <input type="text" class="form-control"
+                           placeholder="Назва" name="category-name"
+                           aria-label="Category Name" aria-describedby="category-name">
+                    <div class="invalid-feedback">Ім'я не може бути порожнім</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="category-description"><i class="bi bi-envelope-at"></i></span>
+                    <input type="text" class="form-control"
+                           name="category-description" placeholder="Опис"
+                           aria-label="Description" aria-describedby="category-description">
+                    <div class="invalid-feedback">Опис не може бути порожнім</div>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="category-slug"><i class="bi bi-lock"></i></span>
+                    <input type="text" class="form-control" placeholder="Slug"
+                           name="category-slug"
+                           aria-label="Category Slug" aria-describedby="category-slug">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="category-photo"><i class="bi bi-person-circle"></i></label>
+                    <input type="file" class="form-control" name="category-photo" id="category-photo">
+                </div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-secondary"
+                        name="category-button" value="true">
+                    Зберегти
+                </button>
+            </div>
+        </div>
+        <input type="hidden" name="category-id" value="" />
+    </form>
+  <hr/>
+}
+

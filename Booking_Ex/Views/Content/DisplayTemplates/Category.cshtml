@@ -1,0 +1,26 @@
+@model ASP_.Net_Core_Class_Home_Work.Data.Entities.Category
+@{
+   
+}
+<div class="col">
+   
+    <div class="card h-100" style="width: 18rem;">
+        <a asp-action="Category" asp-route-id="@(Model.Slug)">
+            <img class="card-img-top" src="~/img/Content/@(Model.PhotoUrl ?? "no-image.jpg")" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text">@Model.Description</p>
+            </div>
+        </a>
+        @if ("Admin".Equals(ViewData["role"]))
+        {
+            <div class="card-footer">
+                <button class="btn btn-outline-danger" date-type="delete-category" data-category-id="@(Model.Id)">Delete</button>
+                <button class="btn btn-outline-warning" data-category-slug="@(Model.Slug)" data-category-name="@(Model.Name)" data-category-description="@(Model.Description)" data-type="edit-category" data-category-id="@(Model.Id)">Edit</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+

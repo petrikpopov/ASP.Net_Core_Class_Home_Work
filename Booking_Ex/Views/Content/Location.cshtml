@@ -1,0 +1,91 @@
+@model ASP_.Net_Core_Class_Home_Work.Models.Content.Location.ContentLocationPageModel;
+@using System.Security.Claims
+@{
+   
+    bool isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
+    bool isAdmin = isAuthenticated? Context.User.Claims.FirstOrDefault(claim =>claim.Type==ClaimTypes.UserData)!=null:false;
+   
+}
+<h1>Location:@Model.Location.Name</h1>
+<div class="card-group row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var room in @Model.Rooms)
+    {
+        @Html.DisplayFor(m=>room,"RoomTemplates");
+    }  
+</div>
+@if (isAdmin)
+{
+    <hr/>
+    <form id="room-form" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="room-name-span"><i class="bi bi-person-vcard"></i></span>
+                    <input type="text" class="form-control"
+                           placeholder="Назва" name="room-name" id="room-name"
+                           aria-label="Room Name" aria-describedby="room-name-span">
+                </div>
+                <div id="room-name-alert" class="alert alert-danger visually-hidden" role="alert"></div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="room-description-span"><i class="bi bi-envelope-at"></i></span>
+                    <input type="text" class="form-control"
+                           name="room-description" placeholder="Опис"
+                           aria-label="Description" aria-describedby="room-description-span">
+                </div>
+                <div id="room-description-alert" class="alert alert-danger visually-hidden" role="alert"></div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="room-slug"><i class="bi bi-lock"></i></span>
+                    <input type="text" class="form-control" placeholder="Slug"
+                           name="room-slug"
+                           aria-label="Room Slug" aria-describedby="room-slug">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="room-stars"><i class="bi bi-unlock"></i></span>
+                    <input type="number" class="form-control" 
+                           name="room-stars"
+                           aria-label="Room Stars" aria-describedby="room-stars">
+                </div>
+                <div id="room-stars-alert" class="alert alert-danger visually-hidden" role="alert"></div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="room-photo"><i class="bi bi-person-circle"></i></label>
+                    <input type="file" class="form-control" name="room-photo" id="room-photo">
+                </div>
+                <div id="room-photo-alert" class="alert alert-danger visually-hidden" role="alert"></div>
+            </div>
+            
+             <div class="col">
+                 <div class="input-group mb-3">
+                     <span class="input-group-text" id="room-price"><i class="bi bi-coin"></i></span>
+                     <input type="number" min="100" step="0.01" class="form-control" 
+                            name="room-price"
+                            aria-label="Room Price" aria-describedby="room-price">
+                 </div>
+                 <div id="room-price-alert" class="alert alert-danger visually-hidden" role="alert"></div>
+            </div>
+           
+        </div>
+        <div class="row">
+             <div class="col">
+                <button type="submit" class="btn btn-danger"
+                        name="room-button" id="room-button" value="true">
+                    Додати
+                </button>
+            </div>
+        </div>
+        <input type="hidden" name="location-id" value="@Model.Location.Id"/>
+    </form>
+}
