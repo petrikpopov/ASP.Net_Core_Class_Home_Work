@@ -192,6 +192,9 @@ namespace ASP_.Net_Core_Class_Home_Work.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("EmailConfirmCode")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");

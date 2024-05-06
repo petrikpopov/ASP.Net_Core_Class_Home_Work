@@ -72,8 +72,21 @@ function serveAdminButtons(){
 function addNewRoom(){
     const roomNameInput = document.getElementById('room-name');
     const alertNameRoom = document.getElementById('room-name-alert');
+    
     const roomDescriptionInput = document.getElementById('room-description');
     const AlertRoomDescription = document.getElementById('room-description-alert');
+    
+    const slugRoom = document.getElementById('room-slug');
+    const slugRoomAlert = document.getElementById('room-slug-alert');
+    
+    const starsRoom = document.getElementById('room-stars')
+    const starsRoomAlert = document.getElementById('room-stars-alert')
+    
+    const priceRoom = document.getElementById('room-price');
+    const priceRoomAlert = document.getElementById('room-price-alert');
+    
+    const roomPhoto =document.getElementById('room-photo');
+    const roomPhotoAlert = document.getElementById('room-photo-alert');
     if (!roomNameInput) {
         throw "Element room-name not found!";
     }
@@ -86,6 +99,30 @@ function addNewRoom(){
     if(!AlertRoomDescription){
         throw "Element room-description-alert not found!"
     }
+    if (!slugRoom){
+        throw "Element room-slug not found!"
+    }
+    if(!slugRoomAlert){ 
+        throw "Element room-slug-alert not found!"
+    }
+    if(!starsRoom){
+        throw "Element room-stars not found!"
+    }
+    if(!starsRoomAlert){
+        throw "Element room-stars-alert not found!"
+    }
+    if(!priceRoom){
+        throw "Element room-price not found!"
+    }
+    if(!priceRoomAlert){
+        throw "Element room-price-alert not found!"
+    }
+    if(!roomPhoto){
+        throw "Element room-photo not found!"
+    }
+    if(!roomPhotoAlert){
+        throw "Element room-price-alert not found!"
+    }
     const nameValue = roomNameInput.value.trim();
     if(nameValue === ""){
         alertNameRoom.classList.remove('visually-hidden');
@@ -96,6 +133,29 @@ function addNewRoom(){
     if(descriptionDescriptionValue===""){
         AlertRoomDescription.classList.remove("visually-hidden");
         AlertRoomDescription.innerText="Описание комнаты обязательное!";
+        return false;
+    }
+    const slugRoomValue = slugRoom.value.trim();
+    if(slugRoomValue===""){
+        slugRoomAlert.classList.remove('visually-hidden');
+        slugRoomAlert.innerText = "Slug дожден быть заполнен, для понятной адресации.";
+        return false;
+    }
+    const starsRoomValue = starsRoom.value.trim();
+    if(starsRoomValue===""){
+        starsRoomAlert.classList.remove('visually-hidden');
+        starsRoomAlert.innerText = "Поле Stars должно быть заполнено, для оценки номера!";
+        return false;
+    }
+    const priceRoomValue = priceRoom.value.trim();
+    if(priceRoomValue===""){
+        priceRoomAlert.classList.remove('visually-hidden');
+        priceRoomAlert.innerText = "Поле Price должно быть заполнено.";
+        return false;
+    }
+    if (roomPhoto.files.length === 0) {
+        roomPhotoAlert.classList.remove('visually-hidden');
+        roomPhotoAlert.innerText = "Фотография комнаты должна быть загружена!";
     }
     return true;
 }

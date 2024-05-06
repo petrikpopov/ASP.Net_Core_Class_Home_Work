@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Net.Mail;
 using System.Runtime.InteropServices.JavaScript;
 using ASP_.Net_Core_Class_Home_Work.Data;
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
@@ -6,6 +7,7 @@ using ASP_.Net_Core_Class_Home_Work.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using ASP_.Net_Core_Class_Home_Work.Models;
 using ASP_.Net_Core_Class_Home_Work.Models.Home.FrontendForm;
+using ASP_.Net_Core_Class_Home_Work.Services.Email;
 using ASP_.Net_Core_Class_Home_Work.Services.Hash;
 using ASP_.Net_Core_Class_Home_Work.Services.Kdf;
 using ASP_.Net_Core_Class_Home_Work.Services.Random;
@@ -26,13 +28,15 @@ public class HomeController : Controller
     private readonly DataContext _dataContext;
     private readonly DataAccessor _dataAccessor;
     private readonly IKdfService _kdfService;
-    public HomeController(ILogger<HomeController> logger, IHashService hashService, IRandomService randomService,  DataAccessor dataAccessor, IKdfService kdfService)
+    private readonly IEmailService _emailService;
+    public HomeController(ILogger<HomeController> logger, IHashService hashService, IRandomService randomService,  DataAccessor dataAccessor, IKdfService kdfService,IEmailService _emailService)
     {
         _logger = logger; // збереження переданніх залежностей , що іх
         _hashService = hashService;// передасть контейнер прі створенні контроллера
         _iRandomService = randomService;
         _dataAccessor = dataAccessor;
         _kdfService = kdfService;
+        this._emailService = _emailService;
     }
 
     public IActionResult Index()
@@ -63,16 +67,35 @@ public class HomeController : Controller
             pageModel.ValidationErrors = _ValidateSignUpModel(formModel);
             if (pageModel.ValidationErrors.Count == 0)
             {
-                String salt = _iRandomService.RandomSalt(5);
-                _dataAccessor.UserDao.SignUp(new ()
+                string code = Guid.NewGuid().ToString()[..6];
+                MailMessage mailMessage = new()
                 {
-                    Name = formModel.UserName,
-                    Email = formModel.UserEmail,
-                    Birthdate = formModel.UserBirthdate,
-                    AvaratUrl = formModel.SavedAvaterFileName,
-                    Salt = salt,
-                    DerivedKey = _kdfService.DerivedKey(salt,formModel.Password)
-                });
+                    Subject = "Підтвердження пошти",
+                    IsBodyHtml = true,
+                    Body = " <p>Для підтверждення пошти введіть на сайті код</p>"+$"<h2 style= 'color: orange'>{code}</h2>"
+                    
+                };
+                mailMessage.To.Add(formModel.UserEmail);
+                try
+                {
+                    _emailService.Send(mailMessage); 
+                    String salt = _iRandomService.RandomSalt(5);
+                    _dataAccessor.UserDao.SignUp(new ()
+                    {
+                        Name = formModel.UserName,
+                        Email = formModel.UserEmail,
+                        Birthdate = formModel.UserBirthdate,
+                        AvaratUrl = formModel.SavedAvaterFileName,
+                        Salt = salt,
+                        DerivedKey = _kdfService.DerivedKey(salt,formModel.Password)
+                    });
+                }
+                catch (Exception e)
+                {
+                    pageModel.ValidationErrors["email"] = "Не вдалося надіслати Email!";
+                    _logger.LogInformation(e.Message);
+                }
+               
             }
         }
        // _logger.LogInformation(Directory.GetCurrentDirectory());

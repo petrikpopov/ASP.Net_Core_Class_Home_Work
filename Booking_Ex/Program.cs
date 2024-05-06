@@ -2,6 +2,7 @@ using ASP_.Net_Core_Class_Home_Work.Data;
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
 using ASP_.Net_Core_Class_Home_Work.Middleware;
 using ASP_.Net_Core_Class_Home_Work.Models;
+using ASP_.Net_Core_Class_Home_Work.Services.Email;
 using ASP_.Net_Core_Class_Home_Work.Services.Hash;
 using ASP_.Net_Core_Class_Home_Work.Services.Kdf;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,7 @@ using MySqlConnector;
 using ASP_.Net_Core_Class_Home_Work.Services.Random;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Configuration.AddJsonFile("emailconfig.json", false);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -32,7 +33,7 @@ builder.Services.AddDbContext<DataContext>(option =>
 
 builder.Services.AddSingleton<DataAccessor>();
 builder.Services.AddSingleton<IKdfService, PBKDF1Service>();
-
+builder.Services.AddSingleton<IEmailService, GmailServise>();
 // налаштування сесіі
 builder.Services.AddDistributedMemoryCache();
 

@@ -462,3 +462,5 @@
 /Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/obj/Debug/net7.0/Booking_Ex.pdb
 /Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/obj/Debug/net7.0/Booking_Ex.genruntimeconfig.cache
 /Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/obj/Debug/net7.0/ref/Booking_Ex.dll
+/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/bin/Debug/net7.0/emailconfig.json
+/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/bin/Debug/net7.0/emailconfig.sample.json

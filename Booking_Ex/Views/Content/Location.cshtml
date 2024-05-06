@@ -31,7 +31,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="room-description-span"><i class="bi bi-envelope-at"></i></span>
                     <input type="text" class="form-control"
-                           name="room-description" placeholder="Опис"
+                           name="room-description" id="room-description" placeholder="Опис"
                            aria-label="Description" aria-describedby="room-description-span">
                 </div>
                 <div id="room-description-alert" class="alert alert-danger visually-hidden" role="alert"></div>
@@ -41,23 +41,24 @@
         <div class="row">
             <div class="col">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="room-slug"><i class="bi bi-lock"></i></span>
+                    <span class="input-group-text" id="room-slug-span"><i class="bi bi-lock"></i></span>
                     <input type="text" class="form-control" placeholder="Slug"
-                           name="room-slug"
-                           aria-label="Room Slug" aria-describedby="room-slug">
+                           name="room-slug" id="room-slug"
+                           aria-label="Room Slug" aria-describedby="room-slug-span">
                 </div>
+                 <div id="room-slug-alert" class="alert alert-danger visually-hidden" role="alert"></div>
             </div>
             <div class="col">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="room-stars"><i class="bi bi-unlock"></i></span>
-                    <input type="number" class="form-control" 
-                           name="room-stars"
-                           aria-label="Room Stars" aria-describedby="room-stars">
+                    <span class="input-group-text" id="room-stars-span"><i class="bi bi-star"></i></span>
+                    <input type="number" class="form-control"
+                           name="room-stars" id="room-stars"
+                           aria-label="Room Stars" aria-describedby="room-stars-span">
                 </div>
                 <div id="room-stars-alert" class="alert alert-danger visually-hidden" role="alert"></div>
             </div>
         </div>
- 
+        
         <div class="row">
             <div class="col">
                 <div class="input-group mb-3">
@@ -66,17 +67,17 @@
                 </div>
                 <div id="room-photo-alert" class="alert alert-danger visually-hidden" role="alert"></div>
             </div>
-            
+        
              <div class="col">
                  <div class="input-group mb-3">
-                     <span class="input-group-text" id="room-price"><i class="bi bi-coin"></i></span>
-                     <input type="number" min="100" step="0.01" class="form-control" 
-                            name="room-price"
-                            aria-label="Room Price" aria-describedby="room-price">
+                     <span class="input-group-text" id="room-price-span"><i class="bi bi-coin"></i></span>
+                     <input type="number" min="100" step="0.01" class="form-control"
+                            name="room-price" id="room-price"
+                            aria-label="Room Price" aria-describedby="room-price-span">
                  </div>
                  <div id="room-price-alert" class="alert alert-danger visually-hidden" role="alert"></div>
             </div>
-           
+        
         </div>
         <div class="row">
              <div class="col">
