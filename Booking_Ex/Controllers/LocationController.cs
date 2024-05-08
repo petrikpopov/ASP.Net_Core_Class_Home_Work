@@ -57,6 +57,11 @@ public class LocationController: ControllerBase
         }
     }
 
+    [HttpPatch]
+    public Location? DoPatch(string slug)
+    {
+        return _dataAccessor._ContentDao.GetLocationBySlug(slug);
+    }
     public class  LocationPostModel
     {
         public string Name { set; get; }

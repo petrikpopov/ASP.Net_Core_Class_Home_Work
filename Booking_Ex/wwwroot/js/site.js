@@ -48,12 +48,43 @@ document.addEventListener('DOMContentLoaded',function (){
    const autorButton = document.getElementById("auth-button");
    if(autorButton){
        autorButton.addEventListener('click',authButtonClick);
-   } 
-   serveReserveButtons();
+   }
+    const confirmEmail = document.getElementById("confirm-email-button");
+    if(confirmEmail){
+        confirmEmail.addEventListener('click',confirmEmailClick);
+    }
+    serveReserveButtons();
     serveAdminButtons();
     initAdminPage();
    
 });
+function confirmEmailClick(){
+    const emailCodeInput = document.getElementById("email-code");
+    if(!emailCodeInput){
+        throw "Element email-code not found!";
+    }
+    const emailMessage = document.getElementById("email-message");
+    if(!emailMessage){
+        throw "Element email-message not found!";
+    }
+    const code = emailCodeInput.value.trim();
+    if(!code){
+        emailMessage.classList.remove('visually-hidden');
+        emailMessage.innerText="Необхідно ввести код!";
+
+        return;
+    }
+    const email = emailCodeInput.getAttribute('data-email');
+    fetch(`/api/auth?email=${email}&code=${code}`,{method:'PATCH'}).then(r=>{
+        if(r.status==202){
+           window.location.reload();
+        }
+        else{
+            emailMessage.classList.remove('visually-hidden');
+            emailMessage.innerText="Код не прийнято!";
+        }
+    })
+}
 function serveAdminButtons(){
     for(let btn of document.querySelectorAll('[data-type="edit-category"]')){
         btn.addEventListener('click', e => {

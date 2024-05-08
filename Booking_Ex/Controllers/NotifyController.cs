@@ -3,6 +3,7 @@ using System.Net.Mail;
 using System.Runtime.InteropServices.JavaScript;
 using ASP_.Net_Core_Class_Home_Work.Services.Email;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace ASP_.Net_Core_Class_Home_Work.Controllers;
 [Route("api/notify")]
@@ -10,10 +11,12 @@ namespace ASP_.Net_Core_Class_Home_Work.Controllers;
 public class NotifyController : ControllerBase
 {
     private readonly IEmailService _emailService;
+    
 
     public NotifyController(IEmailService emailService)
     {
         _emailService = emailService;
+      
     }
 
     public Object DoGet()
@@ -21,7 +24,6 @@ public class NotifyController : ControllerBase
         // надсилаємо листа
         try
         {
-           
             MailMessage mailMessage = new()
             {
                 IsBodyHtml = true,

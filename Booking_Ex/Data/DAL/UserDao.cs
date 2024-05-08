@@ -56,6 +56,28 @@ public class UserDao
         _DataContext.users.Add(user);
         _DataContext.SaveChanges();
     }
+
+    public Boolean ConfirmEmail(string email, string code)
+    {
+        // Find user by email
+        User? user;
+        lock(_dbLocker)
+        {
+           user= _DataContext.users.FirstOrDefault(u => u.Email == email);
+        }
+        if (user == null || user.EmailConfirmCode!=code)
+        {
+            return false;
+        }
+
+        user.EmailConfirmCode = null;
+        lock (_dbLocker)
+        {
+            _DataContext.SaveChanges();
+        }
+
+        return true;
+    }
 }
 // DAL - (Data Access Layer) - сукупність усіх DAO
 // DAO - (Data Access Object) - нaбір методів для роботи з сутністю

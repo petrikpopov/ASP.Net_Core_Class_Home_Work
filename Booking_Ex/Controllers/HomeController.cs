@@ -39,6 +39,31 @@ public class HomeController : Controller
         this._emailService = _emailService;
     }
 
+    public IActionResult ConfirmEmail(string id)
+    {
+        /*
+         * Ідея Вasic-автентифікаціі -- розділення логіну та поролю через 
+         dXNlckBpLnVhOnF3ZTEyMw==
+         */
+        string email, code;
+        try
+        {
+            string data =
+                System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(id)); // user@i.ua:qwe123
+            string[] parts = data.Split(':', 2); // [ user@i.ua, qwe123]
+            email = parts[0]; // user@i.ua
+            code = parts[1]; // qwe123
+            ViewData["result"] = _dataAccessor.UserDao.ConfirmEmail(email, code)
+                ? "Пошта підтверджена"
+                : "Помилка підтвердження пошти";
+        }
+        catch
+        {
+            ViewData["result"] = "Данні не розпізнані!";
+        }
+       
+        return View();
+    }
     public IActionResult Index()
     {
         return View();
@@ -84,6 +109,7 @@ public class HomeController : Controller
                     {
                         Name = formModel.UserName,
                         Email = formModel.UserEmail,
+                        EmailConfirmCode = code,
                         Birthdate = formModel.UserBirthdate,
                         AvaratUrl = formModel.SavedAvaterFileName,
                         Salt = salt,

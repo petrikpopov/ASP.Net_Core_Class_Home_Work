@@ -36,6 +36,7 @@ public class AuthSessionMiddleware
                      new (ClaimTypes.Name,user.Name),
                      new (ClaimTypes.UserData, user.AvaratUrl ?? ""),
                      new (ClaimTypes.Role, user.Role ??""),
+                     new ("EmailConfirmCode", user.EmailConfirmCode??"")
                  };
                  context.User = new ClaimsPrincipal(new ClaimsIdentity(claims, nameof(AuthSessionMiddleware)));
                  //context.Items.Add("auth", "ok");

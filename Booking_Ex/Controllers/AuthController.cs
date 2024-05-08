@@ -43,4 +43,19 @@ public class AuthController : ControllerBase
     {
         return new { Status = "Put work" };
     }
+
+    [HttpPatch]
+    public object Patch(string email, string code) // confirm email by code
+    {
+        if (_dataAccessor.UserDao.ConfirmEmail(email, code))
+        {
+            Response.StatusCode = StatusCodes.Status202Accepted;
+            return new { StatusCode = "OK" };
+        }
+        else
+        {
+            Response.StatusCode = StatusCodes.Status409Conflict;
+            return new { StatusCode = "ERROR" };
+        }
+    }
 }
