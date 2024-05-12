@@ -58,4 +58,30 @@ public class AuthController : ControllerBase
             return new { StatusCode = "ERROR" };
         }
     }
+
+    [HttpGet("token")]
+    public Token? GetToken(string email, string password)
+    {
+        var user = _dataAccessor.UserDao.Authorize(email, password);
+        if (user == null)
+        {
+            Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return null;
+        }
+
+        return _dataAccessor.UserDao.CreateTokenForUser(user);
+    }
 }
+/*
+ * Схемы авторизаціі API. Токени
+ * Розрізняють дві групи схеми
+ * - серверні сесіх - підходить для Server-Page архітектури
+ * - токени - для SPA архітектури
+ * Токен (від анг - жетон , посвідчення) - дані , що дозворяють автентифікувати запит від фронтенду.
+ *
+ * Back                  Front
+ *     <---------------[login, password]
+ *     [token] ---------->
+ *        <------------[GET/ rooms token: 123]
+ *    [перевірка токена] -------> 
+ */

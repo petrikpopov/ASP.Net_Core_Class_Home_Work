@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net.Mail;
 using System.Runtime.InteropServices.JavaScript;
+using System.Text;
 using ASP_.Net_Core_Class_Home_Work.Data;
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
 using ASP_.Net_Core_Class_Home_Work.Data.Entities;
@@ -93,13 +94,17 @@ public class HomeController : Controller
             if (pageModel.ValidationErrors.Count == 0)
             {
                 string code = Guid.NewGuid().ToString()[..6];
+                string slug = Convert.ToBase64String(
+                    System.Text.Encoding.UTF8.GetBytes($"{formModel.UserEmail}:{code}"));
                 MailMessage mailMessage = new()
                 {
                     Subject = "Підтвердження пошти",
                     IsBodyHtml = true,
-                    Body = " <p>Для підтверждення пошти введіть на сайті код</p>"+$"<h2 style= 'color: orange'>{code}</h2>"
-                    
+                    Body = "<p>Для підтвердження пошти введіть на сайті код</p>" +
+                           $"<h2 style='color: orange'>{code}</h2>" +
+                           $"<p>Або перейдіть за <a href='{Request.Scheme}://{Request.Host}/Home/ConfirmEmail/{slug}'>цим посиланням</a></p>"
                 };
+                _logger.LogInformation(mailMessage.Body);
                 mailMessage.To.Add(formModel.UserEmail);
                 try
                 {

@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
 using ASP_.Net_Core_Class_Home_Work.Models.Content.Category;
 using ASP_.Net_Core_Class_Home_Work.Models.Content.Index;
@@ -18,9 +19,11 @@ public class ContentController : Controller
     // GET
     public IActionResult Index()
     {
+        String? useRole = HttpContext.User.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value;
+        bool iaAdmin = "Admin".Equals(useRole);
         ContentIndexPageModel model = new()
         {
-            categories = dataAccessor._ContentDao.GetCategories()
+            categories = dataAccessor._ContentDao.GetCategories(includeDelete: iaAdmin)
         };
         return View(model);
     }

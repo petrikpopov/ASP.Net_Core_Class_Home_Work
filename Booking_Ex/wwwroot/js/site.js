@@ -99,6 +99,47 @@ function serveAdminButtons(){
                 b.getAttribute("data-category-slug");
         });
     }
+    for (let btnDelete of document.querySelectorAll('[date-type="delete-category"]')){
+        btnDelete.addEventListener('click', e => {
+            let b = e.target.closest('[date-type="delete-category"]');
+            let id = b.getAttribute("data-category-id");
+            if(id){
+                if(confirm("Вы действительно хотите удалить категорию ?")){
+                    fetch(`/api/category/${id}`,{method: 'DELETE'}).then(r=>{
+                        if(r.status < 400){
+                            window.location.reload();
+                        }
+                        else{
+                            alert("Ошибка при удалении!");
+                        }
+                    })
+                }
+            }
+            else{
+                alert("Ошибка разметки - нет id элемента!");
+            }
+        });
+    }
+    for (let btnRest of document.querySelectorAll('[date-type="restore-category"]')) {
+        btnRest.addEventListener('click', e => {
+            let b = e.target.closest('[date-type="restore-category"]');
+            let id = b.getAttribute("data-category-id");
+            if (id) {
+                if (confirm("Вы действительно хотите востановить категорию ?")) {
+                    fetch(`/api/category?id=${id}`, {method: 'RESTORE'}).then(r => {
+                        if (r.status < 400) {
+                            window.location.reload();
+                            //r.text().then(console.log);
+                        } else {
+                            alert("Ошибка при востановлении!");
+                        }
+                    })
+                }
+            } else {
+                alert("Ошибка разметки - нет id элемента!");
+            }
+        });
+    }
 }
 function addNewRoom(){
     const roomNameInput = document.getElementById('room-name');

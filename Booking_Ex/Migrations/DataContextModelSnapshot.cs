@@ -169,6 +169,28 @@ namespace ASP_.Net_Core_Class_Home_Work.Migrations
                     b.ToTable("rooms");
                 });
 
+            modelBuilder.Entity("ASP_.Net_Core_Class_Home_Work.Data.Entities.Token", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("ExpireDt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("SubmitDt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("UserID")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Token");
+                });
+
             modelBuilder.Entity("ASP_.Net_Core_Class_Home_Work.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -226,6 +248,17 @@ namespace ASP_.Net_Core_Class_Home_Work.Migrations
                         .IsRequired();
 
                     b.Navigation("Room");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ASP_.Net_Core_Class_Home_Work.Data.Entities.Token", b =>
+                {
+                    b.HasOne("ASP_.Net_Core_Class_Home_Work.Data.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

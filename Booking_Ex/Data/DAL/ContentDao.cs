@@ -38,12 +38,12 @@ public class ContentDao
 
     }
 
-    public List<Category> GetCategories()
+    public List<Category> GetCategories(bool includeDelete = false)
     {
         List<Category> list;
         lock (_dbLocker)
         {
-            list = _context.categories.Where(c => c.DeletedDt == null).ToList();
+            list = _context.categories.Where(c =>includeDelete || c.DeletedDt == null).ToList();
         }
 
         return list;
@@ -75,15 +75,32 @@ public class ContentDao
     public void DeleteCategory(Guid id)
     {
         var ctg = _context.categories.Find(id);
-        if (ctg != null)
+        if (ctg != null && ctg.DeletedDt == null)
         {
             ctg.DeletedDt = DateTime.Now;
-            _context.SaveChanges();
+            lock (_dbLocker)
+            {
+                _context.SaveChanges();
+            }
+            
         }
     }
     public void DeleteCategory(Category category)
     {
         DeleteCategory(category.Id);
+    }
+    public void RestoreCategory(Guid id)
+    {
+        var ctg = _context.categories.Find(id);
+        if (ctg != null && ctg.DeletedDt != null)
+        {
+            ctg.DeletedDt = null;
+            lock (_dbLocker)
+            {
+                _context.SaveChanges();
+            }
+            
+        }
     }
     public void AddLocation(String name, String description,Guid CategoryId,
         int? Stars = null, Guid? CountryId = null, 

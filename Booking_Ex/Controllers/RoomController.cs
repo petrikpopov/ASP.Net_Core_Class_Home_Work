@@ -111,6 +111,24 @@ public class RoomController: ControllerBase
         }
     }
 
+    [HttpGet("reserve")]
+    public List<Reservation> GetReservations(string id)
+    {
+        Room? room;
+        lock (_logger)
+        {
+            room = _dataAccessor._ContentDao.GetRoomBySlug( id);
+        }
+    
+        return room?.Reservations;
+    }
+    
+    [HttpPatch]
+    public Room? DoPatch(string slug)
+    {
+        return _dataAccessor._ContentDao.GetRoomBySlug(slug);
+    }
+    
     [HttpDelete("reserve")]
     public string DropReservation([FromQuery] Guid reservId)
     {
