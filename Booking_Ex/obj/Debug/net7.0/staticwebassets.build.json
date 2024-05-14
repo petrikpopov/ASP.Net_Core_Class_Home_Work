@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nRZwTy19mdLpZbJje9gunY0EW5VQ026mUG3Pxx3Z7HM=",
+  "Hash": "1W3o8fmywXbg0qC+QqWR2esmWanhGlLMrX6EynAJ8tc=",
   "Source": "Booking_Ex",
   "BasePath": "_content/Booking_Ex",
   "Mode": "Default",
@@ -950,6 +950,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/Content/0ab6013e-435e-4c7b-be9f-bbe65dcbb565.jpg"
+    },
+    {
+      "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/0f2b19e0-95f0-4559-8b6d-ee1ff20f506b.png",
+      "SourceId": "Booking_Ex",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/",
+      "BasePath": "_content/Booking_Ex",
+      "RelativePath": "img/Content/0f2b19e0-95f0-4559-8b6d-ee1ff20f506b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/Content/0f2b19e0-95f0-4559-8b6d-ee1ff20f506b.png"
     },
     {
       "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/11121588-a62a-41f5-84ab-942ea4021c1a.jpg",
@@ -2548,6 +2565,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/Content/f2405e98-c87f-44ec-8993-9927be22c16b.jpg"
+    },
+    {
+      "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/f760a505-ed82-4708-9ac6-679d4e988171.png",
+      "SourceId": "Booking_Ex",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/",
+      "BasePath": "_content/Booking_Ex",
+      "RelativePath": "img/Content/f760a505-ed82-4708-9ac6-679d4e988171.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/Content/f760a505-ed82-4708-9ac6-679d4e988171.png"
     },
     {
       "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/f9ac2f65-df10-482c-804c-a594d366bd9f.jpg",

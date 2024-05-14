@@ -42,26 +42,33 @@
             </select>
             <button>Оновити</button>
         </form>
-        @{ 
-            int freeDays = 0;
-            int allDays = 0;
-            String itemClass = "item-free";
-            string authClass = isAuthenticated ? "item-auth" : "";
-        }
+       @{
+           int freeDays = 0;
+           int allDays = 0;
+           String itemClass = "item-free";
+           string authClass = isAuthenticated ? "item-auth" : "";
+           
+           DateTime firstDayOfMonth = new DateTime(Model.Year, Model.Month, 1);
+           int startDayOffset = ((int)firstDayOfMonth.DayOfWeek + 6) % 7; 
+       }
        <div class="calendar">
+           @for(int i = 0; i < startDayOffset; ++i)
+           {
+               <div class="calendar-item"></div>
+           }
+       
            @for(int i = 1; i <= DateTime.DaysInMonth(Model.Year, Model.Month); ++i)
            {
                DateTime date = new DateTime(Model.Year, Model.Month, i);                
                itemClass = (date < DateTime.Today) ? "item-past" : "item-free";
                var reservation = Model.Room.Reservations.FirstOrDefault(r => r.Date == date);
                bool isReserved = reservation != null;
-               bool isOwn = reservation?.UserId != null && 
-                   reservation?.UserId == userId;
+               bool isOwn = reservation?.UserId != null && reservation?.UserId == userId;
                allDays++;
                if (!isReserved) freeDays++;
                if (isReserved) itemClass = "item-reserved";
-        
-               <div class="calendar-item @itemClass @authClass")>
+       
+               <div class="calendar-item @itemClass @authClass">
                    @if (isReserved && isOwn)
                    {
                        <b data-type="drop-reserve-room" 
@@ -70,7 +77,7 @@
                    }
                    else if (!isReserved && isAuthenticated)
                    {
-                         <b data-user-id="@(userId)"
+                       <b data-user-id="@(userId)"
                           data-room-id="@(Model.Room.Id)"
                           data-room-name="@(Model.Room.Name)"
                           data-room-price="@(Model.Room.DailyPrice)"
@@ -79,15 +86,16 @@
                    }
                    else
                    {
-                        <b>@i</b>
+                       <b>@i</b>
                    }
-                </div>
+               </div>
            }
-           @for(int i = allDays % 7; i < 7; ++i)
+           @for(int i = (allDays + startDayOffset) % 7; i < 7 && i != 0; ++i)
            {
-       <div class="calendar-item"></div>
+               <div class="calendar-item"></div>
            }
        </div>
+
        
         @if (freeDays == 0)
         {
