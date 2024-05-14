@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
 using ASP_.Net_Core_Class_Home_Work.Data.Entities;
+using ASP_.Net_Core_Class_Home_Work.Middleware;
 using Microsoft.Extensions.Primitives;
 
 namespace ASP_.Net_Core_Class_Home_Work.Controllers;
@@ -28,43 +29,17 @@ public class CategoryController : ControllerBase
     [HttpPost]
     public string DoPost([FromForm]CategoryPostModel model)
     {
-        // Токени передаються за стандартною схемою - заголовком
-        // Authorization: Bearer 1233242
-        // де 1233242 - токен
-        var authHeader = Request.Headers["Authorization"];
-        if (authHeader == StringValues.Empty)
+        // У проекті є жві авторизаціі - через сесіі та через токени
+        // Первинна авторизація за сесією 
+        // Дані авторизаціі за токеном шукаємо за типом авторизації яку ми встановили як назва класу AuthTokenMiddleware
+        var identity= User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
+        if (identity == null)
         {
+            // якщо авторизація не пройдена то повідомлення а Items
             Response.StatusCode = StatusCodes.Status401Unauthorized;
-            return "Authentication required";
+            return HttpContext.Items[nameof(AuthTokenMiddleware)]?.ToString() ?? "";
         }
-
-        string authValue = authHeader.First()!;
-        if (!authValue.StartsWith("Bearer"))
-        {
-            Response.StatusCode = StatusCodes.Status401Unauthorized;
-            return "Bearer scheme required!";
-        }
-
-        string token = authValue[7..];
-        Guid tokenId;
-        try
-        {
-            tokenId = Guid.Parse(token);
-        }
-        catch
-        {
-            Response.StatusCode = StatusCodes.Status401Unauthorized;
-            return "Token invalid GUID required!";
-        }
-
-        User? user = _DataAccessor.UserDao.GetUserByToken(tokenId);
-        if (user == null)
-        {
-            Response.StatusCode = StatusCodes.Status401Unauthorized;
-            return "Token invalid or expired!";
-        }
-
-        if (user.Role != "Admin")
+        if ( identity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value != "Admin")
         {
             Response.StatusCode = StatusCodes.Status403Forbidden;
             return "Access to API forbidden!";
@@ -74,8 +49,6 @@ public class CategoryController : ControllerBase
             String fileName = null;
             if (model.Photo != null)
             {
-                
-                
                 String ext = Path.GetExtension(model.Photo.FileName);
                 String path = Directory.GetCurrentDirectory() + "/wwwroot/img/Content/";
                     

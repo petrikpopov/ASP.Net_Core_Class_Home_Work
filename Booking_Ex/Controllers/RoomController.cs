@@ -1,5 +1,6 @@
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
 using ASP_.Net_Core_Class_Home_Work.Data.Entities;
+using ASP_.Net_Core_Class_Home_Work.Middleware;
 using ASP_.Net_Core_Class_Home_Work.Migrations;
 using ASP_.Net_Core_Class_Home_Work.Models.Content.Location;
 using ASP_.Net_Core_Class_Home_Work.Models.Content.Room;
@@ -97,6 +98,20 @@ public class RoomController: ControllerBase
     [HttpPost("reserve")]
     public string ReserveRoom([FromBody]ReserveRoomFormModel model)
     {
+        // Первинна автентифікація - за сесією
+        // Якщо вона є, то іде работа з робота Разор
+        if (!(User.Identity?.IsAuthenticated ?? false))
+        {
+            // Якщо немає первинної авторизаціі - перевіряємо токен
+            var identity= User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
+            if (identity == null)
+            {
+                // якщо авторизація не пройдена то повідомлення а Items
+                Response.StatusCode = StatusCodes.Status401Unauthorized;
+                return HttpContext.Items[nameof(AuthTokenMiddleware)]?.ToString() ?? "";
+            }
+        }
+       
         try
         {
             _dataAccessor._ContentDao.ReserveRoom(model);

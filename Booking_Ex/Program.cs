@@ -76,6 +76,7 @@ app.UseSession();
 // підключаємо свій Middleware
 //app.UseMiddleware<AuthSessionMiddleware>();
 app.UseAuthSession();
+app.UseAuthToken();
 
 app.MapControllerRoute(
     name: "default",

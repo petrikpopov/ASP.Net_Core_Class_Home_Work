@@ -42,43 +42,53 @@
             </select>
             <button>Оновити</button>
         </form>
-        @{ int freeDays = 0;}
-        @for (int i = 1; i <= DateTime.DaysInMonth(Model.Year,Model.Month); i++)
-        {
-            DateTime date = new DateTime(@Model.Year, 5, i);
-            if (date < DateTime.Today)
-            {
-                continue;
-            }
-            var reservation = Model.Room.Reservations.FirstOrDefault(r => r.Date == date);
-            bool isReserved = reservation != null;
-            bool isOwn = reservation?.UserId != null && reservation?.UserId == userId;
-            if (!isReserved)
-            {
-                freeDays++;
-                 
-            }
-            <p>
-                @i.@(Model.Month.ToString("D2")).@Model.Year
-                @(isReserved ? "Заброньована" : "Вільна")
-                @if (isReserved && isOwn)
-                {
-                    <button 
-                        data-type="drop-reserve-room"
-                        data-reserve-id="@(reservation.Id)" 
-                        data-room-name-cancellation="@(Model.Room.Name)" data-room-reserve-date="@(reservation.Date)">Скасувати</button>
-                }
-                @if (!isReserved && isAuthenticated)
-                {
-                    <button data-user-id="@(userId)"
-                            data-room-id="@(@Model.Room.Id)"
-                            data-room-name="@(@Model.Room.Name)"
-                            data-room-price="@(@Model.Room.DailyPrice)"
-                            data-date="@Model.Year-@(Model.Month.ToString("D2"))-@(i.ToString("00"))"
-                            data-type="reserve-room">Забронювати</button>
-                }
-            </p>
+        @{ 
+            int freeDays = 0;
+            int allDays = 0;
+            String itemClass = "item-free";
+            string authClass = isAuthenticated ? "item-auth" : "";
         }
+       <div class="calendar">
+           @for(int i = 1; i <= DateTime.DaysInMonth(Model.Year, Model.Month); ++i)
+           {
+               DateTime date = new DateTime(Model.Year, Model.Month, i);                
+               itemClass = (date < DateTime.Today) ? "item-past" : "item-free";
+               var reservation = Model.Room.Reservations.FirstOrDefault(r => r.Date == date);
+               bool isReserved = reservation != null;
+               bool isOwn = reservation?.UserId != null && 
+                   reservation?.UserId == userId;
+               allDays++;
+               if (!isReserved) freeDays++;
+               if (isReserved) itemClass = "item-reserved";
+        
+               <div class="calendar-item @itemClass @authClass")>
+                   @if (isReserved && isOwn)
+                   {
+                       <b data-type="drop-reserve-room" 
+                          data-room-reserve-date="@date"
+                          data-reserve-id="@(reservation!.Id)" title="Скасувати замовлення">@i</b>
+                   }
+                   else if (!isReserved && isAuthenticated)
+                   {
+                         <b data-user-id="@(userId)"
+                          data-room-id="@(Model.Room.Id)"
+                          data-room-name="@(Model.Room.Name)"
+                          data-room-price="@(Model.Room.DailyPrice)"
+                          data-date="@Model.Year-@(Model.Month.ToString("D2"))-@(i.ToString("00"))"
+                          data-type="reserve-room" title="Замовити">@i</b>
+                   }
+                   else
+                   {
+                        <b>@i</b>
+                   }
+                </div>
+           }
+           @for(int i = allDays % 7; i < 7; ++i)
+           {
+       <div class="calendar-item"></div>
+           }
+       </div>
+       
         @if (freeDays == 0)
         {
             <b>У данному місяці бронювання неможливе</b>

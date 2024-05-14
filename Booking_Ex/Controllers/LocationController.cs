@@ -46,7 +46,7 @@ public class LocationController: ControllerBase
 
                
             }
-            _dataAccessor._ContentDao.AddLocation(name:model.Name,description:model.Description,CategoryId:model.CategoryId,Stars:model.Stars, PhotoUrl:fileName);
+            _dataAccessor._ContentDao.AddLocation(name:model.Name,description:model.Description,CategoryId:model.CategoryId,Stars:model.Stars, PhotoUrl:fileName, slug:model.Slug);
             Response.StatusCode = StatusCodes.Status201Created;
             return "Ok";
         }
@@ -67,6 +67,7 @@ public class LocationController: ControllerBase
         public string Name { set; get; }
         public string Description { set; get; }
         public Guid CategoryId { set; get; }
+        public string Slug { set; get; }
         public int Stars { set; get; }
         public IFormFile Photo { set; get; }
 

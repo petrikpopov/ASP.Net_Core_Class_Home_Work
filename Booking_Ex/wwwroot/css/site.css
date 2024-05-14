@@ -90,4 +90,35 @@ a{
   min-height: 150px;
 }
 
+.item-free{
+  color: greenyellow;
+
+}
+
+.item-past{
+  color: grey;
+  cursor: default;
+  pointer-events: none;
+}
+
+.item-reserved{
+  color: red;
+
+}
+
+.calendar{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-item{
+  width: 14%;
+  border: 1px solid grey;
+}
+
+.item-auth{
+  cursor: pointer;
+}
+
+
 
