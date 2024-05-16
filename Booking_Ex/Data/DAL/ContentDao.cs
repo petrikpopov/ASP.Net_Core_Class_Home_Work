@@ -170,6 +170,19 @@ public class ContentDao
             
         }
     }
+    public void RestoreLocation(Guid id)
+    {
+        var loc = _context.locations.Find(id);
+        if (loc != null && loc.DeleteDt!= null)
+        {
+            loc.DeleteDt = null;
+            lock (_dbLocker)
+            {
+                _context.SaveChanges();
+            }
+            
+        }
+    }
     public void AddLocation(String name, String description,Guid CategoryId,
         int? Stars = null, Guid? CountryId = null, 
         Guid? CityId = null, string? Address = null, string? PhotoUrl = null, string? slug = null)

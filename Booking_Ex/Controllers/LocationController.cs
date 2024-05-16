@@ -206,6 +206,36 @@ public class LocationController: BackendController
     {
         return _dataAccessor._ContentDao.GetLocationBySlug(slug);
     }
+    public Object DoOther()
+    {
+        if (Request.Method == "RESTORE")
+        {
+            return DoRestore();
+        }
+
+        Response.StatusCode = StatusCodes.Status405MethodNotAllowed;
+        return "Method Not Allowed";
+    }
+    private string DoRestore()
+    {
+        if (GetAdminAuthMessage() is String msg)
+        {
+            return msg;
+        }
+        string? id = Request.Query["id"].FirstOrDefault();
+        try
+        {
+            _dataAccessor._ContentDao.RestoreLocation(Guid.Parse(id!));
+        }
+        catch
+        {
+            Response.StatusCode = StatusCodes.Status400BadRequest;
+            return "Empty or invalid id";
+        }
+
+        Response.StatusCode = StatusCodes.Status202Accepted;
+        return "RESTORE works with id = " + id;
+    }
     public class  LocationPostModel
     {
         [FromForm(Name="location-name")]

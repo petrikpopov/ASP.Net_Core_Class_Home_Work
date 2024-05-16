@@ -205,7 +205,7 @@ function serveAdminButtons(){
             let b = e.target.closest('[date-type="delete-location"]');
             let id = b.getAttribute("data-location-id");
             if(id){
-                if(confirm("Вы действительно хотите удалить категорию ?")){
+                if(confirm("Вы действительно хотите удалить локацию ?")){
                     fetch(`/api/location/${id}`,{method: 'DELETE'}).then(r=>{
                         if(r.status < 400){
                             window.location.reload();
@@ -228,6 +228,27 @@ function serveAdminButtons(){
             if (id) {
                 if (confirm("Вы действительно хотите востановить категорию ?")) {
                     fetch(`/api/category?id=${id}`, {method: 'RESTORE'}).then(r => {
+                        if (r.status < 400) {
+                            window.location.reload();
+                            //r.text().then(console.log);
+                        } else {
+                            alert("Ошибка при востановлении!");
+                        }
+                    })
+                }
+            } else {
+                alert("Ошибка разметки - нет id элемента!");
+            }
+        });
+    }
+    /////// loc
+    for (let btnRest of document.querySelectorAll('[date-type="restore-location"]')) {
+        btnRest.addEventListener('click', e => {
+            let b = e.target.closest('[date-type="restore-location"]');
+            let id = b.getAttribute("data-location-id");
+            if (id) {
+                if (confirm("Вы действительно хотите востановить локацию ?")) {
+                    fetch(`/api/location?id=${id}`, {method: 'RESTORE'}).then(r => {
                         if (r.status < 400) {
                             window.location.reload();
                             //r.text().then(console.log);

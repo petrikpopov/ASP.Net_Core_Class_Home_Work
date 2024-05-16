@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pBx/qdWOVqBYMCHtBIcOY+c5xyONY/4H1TiLELub+js=",
+  "Hash": "qh5DHvruI7YBEAr223nEB+431LwqwMHnXvYCxxGCrc4=",
   "Source": "Booking_Ex",
   "BasePath": "_content/Booking_Ex",
   "Mode": "Default",
@@ -952,6 +952,23 @@
       "OriginalItemSpec": "wwwroot/img/Content/0ab6013e-435e-4c7b-be9f-bbe65dcbb565.jpg"
     },
     {
+      "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/0e2649c4-0fb2-4024-8793-8e041426b25b.png",
+      "SourceId": "Booking_Ex",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/",
+      "BasePath": "_content/Booking_Ex",
+      "RelativePath": "img/Content/0e2649c4-0fb2-4024-8793-8e041426b25b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/Content/0e2649c4-0fb2-4024-8793-8e041426b25b.png"
+    },
+    {
       "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/0f2b19e0-95f0-4559-8b6d-ee1ff20f506b.png",
       "SourceId": "Booking_Ex",
       "SourceType": "Discovered",
@@ -1290,6 +1307,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/Content/307cfaa1-f07e-4c2c-9fee-d9194554019d.jpg"
+    },
+    {
+      "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/312d0fec-982b-4a7a-afea-b86aedff3153.webp",
+      "SourceId": "Booking_Ex",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/",
+      "BasePath": "_content/Booking_Ex",
+      "RelativePath": "img/Content/312d0fec-982b-4a7a-afea-b86aedff3153.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/Content/312d0fec-982b-4a7a-afea-b86aedff3153.webp"
     },
     {
       "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/32646a5d-71cf-4d47-9792-19701b45205d.jpg",
@@ -2210,6 +2244,23 @@
       "OriginalItemSpec": "wwwroot/img/Content/9de10a11-e5d7-4aba-8cec-5aef1ce1318f.jpg"
     },
     {
+      "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/a202d650-e1dc-4fcb-9e52-b19f5382174d.png",
+      "SourceId": "Booking_Ex",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/",
+      "BasePath": "_content/Booking_Ex",
+      "RelativePath": "img/Content/a202d650-e1dc-4fcb-9e52-b19f5382174d.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/Content/a202d650-e1dc-4fcb-9e52-b19f5382174d.png"
+    },
+    {
       "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/a36b5db0-a448-43e7-9b4a-a8781be6de9c.png",
       "SourceId": "Booking_Ex",
       "SourceType": "Discovered",
@@ -2718,6 +2769,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/Content/d4e5bf86-1143-4f9e-8370-e8b64a94fefe.jpeg"
+    },
+    {
+      "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/d5143861-c585-40c5-8710-f43b8bb3beb0.png",
+      "SourceId": "Booking_Ex",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/",
+      "BasePath": "_content/Booking_Ex",
+      "RelativePath": "img/Content/d5143861-c585-40c5-8710-f43b8bb3beb0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/Content/d5143861-c585-40c5-8710-f43b8bb3beb0.png"
     },
     {
       "Identity": "/Users/popov911/Desktop/ASP .Net Core Booking/Booking_Ex/wwwroot/img/Content/d6421ad2-3a87-4caf-928e-408fb194ff7d.jpeg",
