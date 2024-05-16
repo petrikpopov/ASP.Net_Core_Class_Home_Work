@@ -52,13 +52,13 @@ public class AuthTokenMiddleware
                   throw new Exception("Token invalid or expired!");
               }
 
-              Token? tokenData = dataAccessor.UserDao.GetTokenById(tokenId);
-              if (tokenData == null || tokenData.ExpireDt < DateTime.UtcNow)
-              {
-                  context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                  await context.Response.WriteAsync("Token invalid or expired!");
-                  return;
-              }
+              // Token? tokenData = dataAccessor.UserDao.GetTokenById(tokenId);
+              // if (tokenData == null || tokenData.ExpireDt < DateTime.UtcNow)
+              // {
+              //     context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+              //     await context.Response.WriteAsync("Token invalid or expired!");
+              //     return;
+              // }
               Claim[] claims = new Claim[]
              {
                  new (ClaimTypes.Sid, user.Id.ToString()),

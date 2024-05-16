@@ -1,7 +1,7 @@
 @model ASP_.Net_Core_Class_Home_Work.Models.Content.Index.ContentIndexPageModel;
 @using System.Security.Claims
 @{
-   Layout = "_ContentLayout";
+    Layout = "_ContentLayout";
     bool isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
     string role = isAuthenticated? Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Role).Value: "";
     ViewData["role"] = role;

@@ -60,18 +60,68 @@ public class ContentDao
         return ctg;
     }
 
+    public Category? GetCategoryById(Guid id)
+    {
+        Category? ctg;
+        lock (_dbLocker)
+        {
+            ctg = _context.categories.Find(id);
+        }
+
+        return ctg;
+    }
+    public Location? GetLocationById(Guid id)
+    {
+        Location? lct;
+        lock (_dbLocker)
+        {
+            lct = _context.locations.Find(id);
+        }
+
+        return lct;
+    }
     public void UpdateCategory(Category category)
     {
-        var ctg = _context.categories.Find(category.Id);
-        if (ctg != null)
+        Category? ctg;
+        lock (_dbLocker)
+        {
+            ctg =  _context.categories.Find(category.Id);
+        }
+        if (ctg != null && ctg!=category)
         {
             ctg.Name = category.Name;
             ctg.Description = category.Description;
             ctg.DeletedDt = category.DeletedDt;
+            ctg.PhotoUrl = ctg.PhotoUrl;
+        }
+        lock (_dbLocker)
+        {
             _context.SaveChanges();
         }
     }
 
+    public void UpdateLocation(Location location)
+    {
+        Location? lct;
+        lock (_dbLocker)
+        {
+            lct = _context.locations.Find(location.Id);
+        }
+
+        if (lct != null && lct != location)
+        {
+            lct.Name = location.Name;
+            lct.Description = location.Description;
+            lct.DeleteDt = location.DeleteDt;
+            lct.PhotoUrl = location.PhotoUrl;
+            lct.Stars = location.Stars;
+        }
+
+        lock (_dbLocker)
+        {
+            _context.SaveChanges();
+        }
+    }
     public void DeleteCategory(Guid id)
     {
         var ctg = _context.categories.Find(id);
@@ -88,6 +138,24 @@ public class ContentDao
     public void DeleteCategory(Category category)
     {
         DeleteCategory(category.Id);
+    }
+    
+    public void DeleteLocation(Guid id)
+    {
+        var loc = _context.locations.Find(id);
+        if (loc != null && loc.DeleteDt==null)
+        {
+            loc.DeleteDt = DateTime.Now;
+            lock (_dbLocker)
+            {
+                _context.SaveChanges();
+            }
+            
+        }
+    }
+    public void DeleteLocation(Location location)
+    {
+        DeleteLocation(location.Id);
     }
     public void RestoreCategory(Guid id)
     {
@@ -140,7 +208,7 @@ public class ContentDao
 
         return loc;
     }
-    public List<Location> GetLocations(String categorySlug)
+    public List<Location> GetLocations(String categorySlug, bool includeDelete = false)
     {
         var ctg = GetCategoryBySlug(categorySlug);
         if(ctg == null)
@@ -150,7 +218,7 @@ public class ContentDao
         var query = _context
             .locations
             .Where(loc => 
-                loc.DeleteDt == null && 
+                (includeDelete || loc.DeleteDt == null) && 
                 loc.CategoryId == ctg.Id);  
         return query.ToList();
     }

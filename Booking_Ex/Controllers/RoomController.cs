@@ -1,30 +1,44 @@
+using System.Security.Claims;
 using ASP_.Net_Core_Class_Home_Work.Data.DAL;
 using ASP_.Net_Core_Class_Home_Work.Data.Entities;
 using ASP_.Net_Core_Class_Home_Work.Middleware;
 using ASP_.Net_Core_Class_Home_Work.Migrations;
 using ASP_.Net_Core_Class_Home_Work.Models.Content.Location;
 using ASP_.Net_Core_Class_Home_Work.Models.Content.Room;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ASP_.Net_Core_Class_Home_Work.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 [Route("api/room")]
 [ApiController]
-public class RoomController: ControllerBase
+public class RoomController: BackendController
 {
     private readonly DataAccessor _dataAccessor;
       private readonly ILogger _logger;
+      private bool isAuthentication;
+      private bool iaAdmin;
 
     public RoomController(DataAccessor _dataAccessor, ILogger<RoomController>logger)
     {
         this._dataAccessor = _dataAccessor;
         _logger = logger;
     }
-
+    // [NonAction]
+    // public void OnActionExecuting(ActionExecutingContext context)
+    // {
+    //     var identity = User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthSessionMiddleware));
+    //     identity ??=  User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
+    //     this.isAuthentication = identity != null;
+    //     String? useRole = identity?.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value; 
+    //     this.iaAdmin = "Admin".Equals(useRole);
+    //    
+    // }
 
     [HttpGet("all/{id}")]
     public List<Room> GetRooms(string id)
     {
+        _logger.LogWarning($"auth={isAuthentication}, admin={iaAdmin}");
         //var location = _dataAccessor._ContentDao.GetLocationBySlug(id);
         List<Room> rooms;
         {
@@ -54,6 +68,11 @@ public class RoomController: ControllerBase
     [HttpPost]
     public string DoPost( [FromForm] RoomFormModel model)
     {
+        if (GetAdminAuthMessage() is String msg)
+        {
+            return msg;
+            
+        }
         try
         {
             String? fileName = null;
@@ -98,6 +117,8 @@ public class RoomController: ControllerBase
     [HttpPost("reserve")]
     public string ReserveRoom([FromBody]ReserveRoomFormModel model)
     {
+        // Todo: перевірити що кімната вільна на дату бронування
+        // А також дата бронування не є у минулому
         // Первинна автентифікація - за сесією
         // Якщо вона є, то іде работа з робота Разор
         if (!(User.Identity?.IsAuthenticated ?? false))
@@ -167,4 +188,9 @@ public class RoomController: ControllerBase
         }
         
     }
+    // [NonAction] // Якщо неможна зробити метод private то позначаємо атрибутом [NonAction]
+    // public void OnActionExecuted(ActionExecutedContext context)
+    // {
+    //    
+    // }
 }

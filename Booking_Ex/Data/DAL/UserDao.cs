@@ -48,16 +48,16 @@ public class UserDao
 
         return user;
     }
-    public Token? GetTokenById(Guid tokenId)
-    {
-        Token? token;
-        lock (_dbLocker)
-        {
-            token = _DataContext.Token.Include(t => t.User).FirstOrDefault(t => t.Id == tokenId);
-        }
-
-        return token;
-    }
+    // public Token? GetTokenById(Guid tokenId)
+    // {
+    //     Token? token;
+    //     lock (_dbLocker)
+    //     {
+    //         token = _DataContext.Token.Include(t => t.User).FirstOrDefault(t => t.Id == tokenId);
+    //     }
+    //
+    //     return token;
+    // }
     public Token CreateTokenForUser(User user)
     {
         return CreateTokenForUser(user.Id);

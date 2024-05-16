@@ -30,13 +30,15 @@ public class ContentController : Controller
     
     public IActionResult Category([FromRoute]String id)
     {
+        String? useRole = HttpContext.User.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value;
+        bool iaAdmin = "Admin".Equals(useRole);
         var ctg = dataAccessor._ContentDao.GetCategoryBySlug(id);
         
         return ctg==null? 
             View("NotFound"): View(new ContentCategoryPageModel()
                 {
                     Category = ctg,
-                    Locations = dataAccessor._ContentDao.GetLocations(ctg.Slug!)
+                    Locations = dataAccessor._ContentDao.GetLocations(ctg.Slug!, iaAdmin)
                 }
             );
     }
