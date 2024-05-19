@@ -28,24 +28,10 @@ public class LocationController: BackendController
     [HttpPut]
     public string DoPut([FromForm] LocationPostModel model)
     {
-        //  var identity = User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthSessionMiddleware));
-        // identity ??=  User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
         if (GetAdminAuthMessage() is String mess)
         {
             return mess;
         }
-        // if (identity == null)
-        // {
-        //     // якщо авторизація не пройдена то повідомлення а Items
-        //     Response.StatusCode = StatusCodes.Status401Unauthorized;
-        //     return HttpContext.Items[nameof(AuthTokenMiddleware)]?.ToString() ?? "Auth required";
-        // }
-        // if ( identity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value != "Admin")
-        // {
-        //     Response.StatusCode = StatusCodes.Status403Forbidden;
-        //     return "Access to API forbidden!";
-        // }
-        // перевіряємо CategoryId на наявність
         if (model.CategoryId==default(Guid))
         {
             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
@@ -189,6 +175,7 @@ public class LocationController: BackendController
             return "Error";
         }
     }
+    
     [HttpDelete("{id}")]
     public string DoDelete(Guid id)
     {

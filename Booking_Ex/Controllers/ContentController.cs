@@ -44,6 +44,8 @@ public class ContentController : Controller
     }
     public IActionResult Location([FromRoute]String id)
     {
+        String? useRole = HttpContext.User.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value;
+        bool iaAdmin = "Admin".Equals(useRole);
         var loc = dataAccessor._ContentDao.GetLocationBySlug(id);
         
         return loc==null? 
@@ -51,7 +53,7 @@ public class ContentController : Controller
             View(new ContentLocationPageModel()
             {
                 Location = loc,
-                Rooms = dataAccessor._ContentDao.GetRooms(loc.Id)
+                Rooms = dataAccessor._ContentDao.GetRooms(loc.Id, iaAdmin)
             });
     }
 

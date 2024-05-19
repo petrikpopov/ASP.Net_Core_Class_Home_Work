@@ -9,6 +9,7 @@ public class BackendController: ControllerBase, IActionFilter
 {
     protected bool isAuthentication;
     protected bool iaAdmin;
+    protected IEnumerable<Claim>? claims;
     protected String? GetAdminAuthMessage()
     {
         if (!isAuthentication)
@@ -33,7 +34,8 @@ public class BackendController: ControllerBase, IActionFilter
         this.isAuthentication = identity != null;
         String? useRole = identity?.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value; 
         this.iaAdmin = "Admin".Equals(useRole);
-       
+        claims = identity?.Claims;
+
     }
     [NonAction] // Якщо неможна зробити метод private то позначаємо атрибутом [NonAction]
     public void OnActionExecuted(ActionExecutedContext context)

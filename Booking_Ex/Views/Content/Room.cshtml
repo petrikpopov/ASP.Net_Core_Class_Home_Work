@@ -15,15 +15,15 @@
         <form>
             Бронювання кімнати на місяць
             <select name="month">
-                @for (int i = 1; i <= 12; i++)
+                @for (int i = DateTime.Now.Month; i <= DateTime.Today.Month+4; i++)
                 {
                     if (i == Model.Month)
                     {
-                        <option selected="" value="@i">@(i.ToString("D2"))</option>
+                        <option selected="" value="@i">@i</option>
                     }
                     else
                     {
-                        <option value="@i">@(i.ToString("D2"))</option>
+                        <option value="@i">@i</option>
                     }
                 }
             </select> року

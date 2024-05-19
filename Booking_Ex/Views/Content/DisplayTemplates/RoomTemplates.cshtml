@@ -1,15 +1,37 @@
 @model ASP_.Net_Core_Class_Home_Work.Data.Entities.Room;
-
+@{
+    bool isDelete = Model.DeleteDt != null;
+    String filter = isDelete ? "opacity:0.6;" : "";
+}
 <div class="col">
-    <div class="card h-100" style="width: 18rem;">
+    <div class="card h-100" style="width: 18rem; @filter">
         <a asp-action="Room" asp-route-id="@(Model.Slug)">
             <img class="card-img-top" src="~/img/Content/@(Model.PhotoUrl ?? "no-image.jpg")" alt="Card image cap">
             <div class="card-body">
+                @if (isDelete)
+                {
+                    <i>Удалено @(Model.DeleteDt)</i>
+                }
                 <h5 class="card-title">@Model.Name</h5>
-                <p class="card-text">@Model.Description</p> 
+                <p class="card-text">@Model.Description</p>
                 <b class="card-text">Цена за номер: @Model.DailyPrice.ToString("F2")</b>
             </div>
         </a>
+         @if ("Admin".Equals(ViewData["role"]))
+        {
+            <div class="card-footer">
+                @if (isDelete)
+                {
+                    <button class="btn btn-outline-success" date-type="restore-room" data-room-id="@(Model.Id)">Restore</button>
+                }
+                else
+                {
+                     <button class="btn btn-outline-danger" date-type="delete-room" data-room-id="@(Model.Id)">Delete</button>
+                }
+        
+                <button class="btn btn-outline-warning" data-room-slug="@(Model.Slug)" data-room-name="@(Model.Name)" data-room-description="@(Model.Description)" data-type="edit-room" data-room-stars="@(Model.Stars)" data-room-price="@(Model.DailyPrice)"  data-room-id="@(Model.Id)">Edit</button>
+            </div>
+        }
     </div>
 </div>
 

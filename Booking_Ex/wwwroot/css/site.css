@@ -14,11 +14,14 @@ html {
 
 html {
   position: relative;
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 a{
@@ -120,5 +123,12 @@ a{
   cursor: pointer;
 }
 
+footer {
+  margin-top: auto;
+}
 
+footer .footer-bottom-info{
+  display: flex;
+  justify-content: space-between;
+}
 

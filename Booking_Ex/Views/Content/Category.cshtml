@@ -8,10 +8,13 @@
     ViewData["role"] = role;
 }
 <h1>@Model.Category.Name</h1> 
-@foreach (var location in Model.Locations)
-{
-    @Html.DisplayFor(m=>location,"LocationTemplate")
-}
+<div class="card-group row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var location in Model.Locations)
+    {
+        @Html.DisplayFor(m=>location,"LocationTemplate")
+    }
+</div>
+
 @if ("Admin".Equals(role))
 {
   <hr/>

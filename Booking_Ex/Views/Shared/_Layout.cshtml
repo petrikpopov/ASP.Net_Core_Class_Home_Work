@@ -33,10 +33,6 @@
                     <li class="nav-item main-page">
                         <a class="nav-link text-dark main-page-ref" title="Content" asp-area="" asp-controller="Content" asp-action="Index"><i class="bi bi-house-heart-fill"></i></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark a-taxi" title="Адміністрування контенту" asp-area="" asp-controller="Home" asp-action="Admin"><i class="bi bi-pencil-square"></i></a>
-                    </li>
-                    
                 </ul>
                 <div class="login-register">
                      @if (isAuthenticated)
@@ -70,16 +66,57 @@
         @RenderBody()
     </main>
 </div>
-
-<footer class="border-top footer text-muted">
+<footer class="bg-secondary text-light py-4">
     <div class="container">
-        @if (isAuthenticated)
-        {
-            <b>Ви увійшли до системи!!</b>
-        }
-        &copy; 2024 - ASP_.Net_Core_Class_Home_Work - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Контакты</h5>
+                <ul class="list-unstyled">
+                    <li>Телефон: +123456789</li>
+                    <li>Email: info@example.com</li>
+                    <li>Адрес: ул. Примерная, д. 123</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Ссылки</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Социальные сети</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col footer-bottom-info">
+                 @if (isAuthenticated)
+                 {
+                     <b>Ви увійшли до системи!!</b>
+                 }
+                <p class="text-center">&copy; 2024 Все права защищены</p>
+            </div>
+        </div>
     </div>
 </footer>
+
+@* <footer class="border-top footer text-muted"> *@
+@*     <div class="container"> *@
+@*         @if (isAuthenticated) *@
+@*         { *@
+@*             <b>Ви увійшли до системи!!</b> *@
+@*         } *@
+@*         &copy; 2024 - ASP_.Net_Core_Class_Home_Work - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+@*     </div> *@
+@* </footer> *@
  
 <!-- Email Confirm Modal -->
     <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">

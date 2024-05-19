@@ -24,29 +24,26 @@ public class RoomController: BackendController
         this._dataAccessor = _dataAccessor;
         _logger = logger;
     }
-    // [NonAction]
-    // public void OnActionExecuting(ActionExecutingContext context)
-    // {
-    //     var identity = User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthSessionMiddleware));
-    //     identity ??=  User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
-    //     this.isAuthentication = identity != null;
-    //     String? useRole = identity?.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value; 
-    //     this.iaAdmin = "Admin".Equals(useRole);
-    //    
-    // }
-
+    
+    [HttpGet("{id}")]
+    public List<Room> DoGet(string id)
+    {
+        String? userRole = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+        bool isAdmin = "Admin".Equals(userRole);
+        return _dataAccessor._ContentDao.GetRooms(id, isAdmin);
+    }
+    
     [HttpGet("all/{id}")]
     public List<Room> GetRooms(string id)
     {
-        _logger.LogWarning($"auth={isAuthentication}, admin={iaAdmin}");
-        //var location = _dataAccessor._ContentDao.GetLocationBySlug(id);
         List<Room> rooms;
         {
             rooms = _dataAccessor._ContentDao.GetRooms(id);
         }
         return rooms;
+       
     }
-
+    
     [HttpGet("{id}")]
     public Room GetRoom([FromRoute] string id /*[FromQuery] int? year, [FromQuery] int? moth*/)
     {
@@ -58,11 +55,7 @@ public class RoomController: BackendController
         }
 
         room.Reservations = room.Reservations.Where(r => r.Date >= DateTime.Today).ToList();
-        /*room.Reservations.ForEach(r =>
-        {
-            r.Room = null!;
-            r.User = null!;
-        });*/
+       
         return room;
     }
     [HttpPost]
@@ -113,26 +106,141 @@ public class RoomController: BackendController
         }
   
     }
+    
+    //
+    [HttpPut]
+    public string DoPut([FromForm] RoomPostModel model)
+    {
+        if (GetAdminAuthMessage() is String mess)
+        {
+            return mess;
+        }
+        if (model.LocationID==default(Guid))
+        {
+            Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+            return "Missing required parameter: 'room-id' ";
+        }
+
+        Room room = model.RoomId == null ? null : _dataAccessor._ContentDao.GetRoomById(model.RoomId.Value);
+        if (room == null)
+        {
+            Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+            return $"Parameter 'room-id' ({model.LocationID}) belongs to no entity. ";
+        }
+        if (!string.IsNullOrEmpty(model.Name))
+        {
+            room.Name = model.Name;
+        }
+        if (!string.IsNullOrEmpty(model.Description))
+        {
+            room.Description = model.Description;
+        }
+        if (!string.IsNullOrEmpty(model.Slug))
+        {
+            room.Slug = model.Slug;
+        }
+        if (!double.IsNaN(model.DailyPrice) && !double.IsInfinity(model.DailyPrice))
+        {
+            room.DailyPrice = model.DailyPrice;
+        }
+
+        if (model.Stars > 0)
+        {
+            room.Stars = model.Stars;
+        }
+        if (model.Photo != null)   // передається новий файл - зберігаємо новий, видаляємо старий
+        {
+
+            try
+
+            {
+
+                String? fileName = null;
+
+                String ext = Path.GetExtension(model.Photo.FileName);
+
+                String path = Directory.GetCurrentDirectory() + "/wwwroot/img/content/";
+
+                String pathName;
+
+                do
+
+                {
+
+                    fileName = Guid.NewGuid() + ext;
+
+                    pathName = path + fileName;
+
+                }
+
+                while (System.IO.File.Exists(pathName));
+
+                using var stream = System.IO.File.OpenWrite(pathName);
+
+                model.Photo.CopyTo(stream);
+                // новий файл успішно завантажений - видаляємо старий
+
+                if (!String.IsNullOrEmpty((room.PhotoUrl)))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(path + room.PhotoUrl);
+                    }
+                    catch
+                    {
+                        _logger.LogWarning(room.PhotoUrl+"not deleted");
+                    }
+                     
+                } 
+                // зберігаємо нове ім'я 
+
+                room.PhotoUrl = fileName;
+
+            }
+            catch (Exception ex)
+
+            {
+                _logger.LogWarning(ex.Message);
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+
+                return "Error uploading file";
+
+            }
+
+        }
+        _dataAccessor._ContentDao.UpdateRoom(room);
+        Response.StatusCode = StatusCodes.Status200OK;
+        return "Update";
+    }
 
     [HttpPost("reserve")]
     public string ReserveRoom([FromBody]ReserveRoomFormModel model)
     {
-        // Todo: перевірити що кімната вільна на дату бронування
-        // А також дата бронування не є у минулому
-        // Первинна автентифікація - за сесією
-        // Якщо вона є, то іде работа з робота Разор
-        if (!(User.Identity?.IsAuthenticated ?? false))
+        
+        if (!base.isAuthentication)
         {
-            // Якщо немає первинної авторизаціі - перевіряємо токен
-            var identity= User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
-            if (identity == null)
-            {
-                // якщо авторизація не пройдена то повідомлення а Items
-                Response.StatusCode = StatusCodes.Status401Unauthorized;
-                return HttpContext.Items[nameof(AuthTokenMiddleware)]?.ToString() ?? "";
-            }
+            // якщо авторизація не пройдена то повідомлення а Items
+            Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return "Authorization failed!";
         }
-       
+        // перевіряємо що немає разбіжності ID користувача з авторизаціі та форми.
+         if ( base.claims?.First(c => c.Type == ClaimTypes.Sid)?.Value != model.UserId.ToString())
+         {
+             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+             return "Ambiguous user identification!";
+         }
+        Reservation? reservation = _dataAccessor._ContentDao.GetReservation(model.RoomId, model.Date);
+        
+        if (reservation != null)
+        {
+            Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+            return "Room is reserved for requested date!";
+        }
+        if (model.Date < DateTime.Today) // Перевіряємо, що дата резервування не є минулою.
+        {
+            Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+            return "Cannot reserve for a past date!";
+        }
         try
         {
             _dataAccessor._ContentDao.ReserveRoom(model);
@@ -146,7 +254,7 @@ public class RoomController: BackendController
            return e.Message;
         }
     }
-
+    
     [HttpGet("reserve")]
     public List<Reservation> GetReservations(string id)
     {
@@ -155,7 +263,6 @@ public class RoomController: BackendController
         {
             room = _dataAccessor._ContentDao.GetRoomBySlug( id);
         }
-    
         return room?.Reservations;
     }
     
@@ -188,9 +295,73 @@ public class RoomController: BackendController
         }
         
     }
-    // [NonAction] // Якщо неможна зробити метод private то позначаємо атрибутом [NonAction]
-    // public void OnActionExecuted(ActionExecutedContext context)
-    // {
-    //    
-    // }
+    
+    [HttpDelete("{id}")]
+    public string DoDelete(Guid id)
+    {
+        if (GetAdminAuthMessage() is String msg)
+        {
+            return msg;
+        }
+        _dataAccessor._ContentDao.DeleteRoom(id);
+        Response.StatusCode = StatusCodes.Status202Accepted;
+        return "Ok";
+    }
+    public Object DoOther()
+    {
+        if (Request.Method == "RESTORE")
+        {
+            return DoRestore();
+        }
+
+        Response.StatusCode = StatusCodes.Status405MethodNotAllowed;
+        return "Method Not Allowed";
+    }
+    private string DoRestore()
+    {
+        if (GetAdminAuthMessage() is String msg)
+        {
+            return msg;
+        }
+        string? id = Request.Query["id"].FirstOrDefault();
+        try
+        {
+            _dataAccessor._ContentDao.RestoreRoom(Guid.Parse(id!));
+        }
+        catch
+        {
+            Response.StatusCode = StatusCodes.Status400BadRequest;
+            return "Empty or invalid id";
+        }
+
+        Response.StatusCode = StatusCodes.Status202Accepted;
+        return "RESTORE works with id = " + id;
+    }
+    public class RoomPostModel
+    {
+        [FromForm(Name="room-name")]
+        public string Name { set; get; }
+        
+        [FromForm(Name="room-description")]
+        public string Description { set; get; }
+        
+        [FromForm(Name="room-id")]
+        public Guid? RoomId { set; get; }
+        
+        [FromForm(Name="room-slug")]
+        public string Slug { set; get; }
+        
+        [FromForm(Name="room-stars")]
+        public int Stars { set; get; }
+        
+        [FromForm(Name="room-photo")]
+        public IFormFile Photo { set; get; }
+        
+        [FromForm(Name="location-id")]
+        public Guid? LocationID { set; get; }
+        
+        [FromForm(Name="room-price")]
+        public Double DailyPrice { set; get; }
+    }
+   
 }

@@ -1,10 +1,10 @@
 @model ASP_.Net_Core_Class_Home_Work.Models.Content.Location.ContentLocationPageModel;
 @using System.Security.Claims
 @{
-   
+    Layout = "_ContentLayout";
     bool isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
-    bool isAdmin = isAuthenticated? Context.User.Claims.FirstOrDefault(claim =>claim.Type==ClaimTypes.UserData)!=null:false;
-   
+    string role = isAuthenticated? Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Role).Value: "";
+    ViewData["role"] = role;
 }
 <h1>Location:@Model.Location.Name</h1>
 <div class="card-group row row-cols-1 row-cols-md-3 g-4">
@@ -13,7 +13,7 @@
         @Html.DisplayFor(m=>room,"RoomTemplates");
     }  
 </div>
-@if (isAdmin)
+@if ("Admin".Equals(role))
 {
     <hr/>
     <form id="room-form" method="post" enctype="multipart/form-data">
@@ -52,7 +52,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="room-stars-span"><i class="bi bi-star"></i></span>
                     <input type="number" class="form-control"
-                           name="room-stars" id="room-stars"
+                           name="room-stars" id="room-stars" placeholder="Stars"
                            aria-label="Room Stars" aria-describedby="room-stars-span">
                 </div>
                 <div id="room-stars-alert" class="alert alert-danger visually-hidden" role="alert"></div>
@@ -73,7 +73,7 @@
                      <span class="input-group-text" id="room-price-span"><i class="bi bi-coin"></i></span>
                      <input type="number" min="100" step="0.01" class="form-control"
                             name="room-price" id="room-price"
-                            aria-label="Room Price" aria-describedby="room-price-span">
+                            aria-label="Room Price" aria-describedby="room-price-span" placeholder="Price">
                  </div>
                  <div id="room-price-alert" class="alert alert-danger visually-hidden" role="alert"></div>
             </div>
@@ -83,10 +83,11 @@
              <div class="col">
                 <button type="submit" class="btn btn-danger"
                         name="room-button" id="room-button" value="true">
-                    Додати
+                    Додати кімнату
                 </button>
             </div>
         </div>
         <input type="hidden" name="location-id" value="@Model.Location.Id"/>
+        <input type="hidden" name="room-id" value=""/>
     </form>
 }

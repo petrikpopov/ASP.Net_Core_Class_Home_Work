@@ -27,25 +27,6 @@
                     <li class="nav-item main-page" >
                         <a class="nav-link text-dark main-page-ref" asp-area="" asp-controller="Home" asp-action="Index">Booking</a>
                     </li>
-                    <ul class="list-type">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark a-sleep" asp-area="" asp-controller="Home" asp-action="Privacy">Жилье</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark a-fly" asp-area="" asp-controller="Home" asp-action="Privacy">Авиабилеты</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark a-car" asp-area="" asp-controller="Home" asp-action="Privacy">Аренда машин</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark a-taxi" asp-area="" asp-controller="Home" asp-action="Privacy">Такси от/до аэропорта</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark a-taxi" title="Адміністрування контенту" asp-area="" asp-controller="Home" asp-action="Admin"><i class="bi bi-pencil-square"></i></a>
-                        </li>
-                    </ul>
-                    
-                    
                 </ul>
                 <div class="login-register">
                     @if (isAuthenticated)
@@ -67,10 +48,6 @@
             </div>
         </div>
     </nav>
-    <div class="sub-header">
-        <h2>Ваш найкращий вибір</h2>
-        <h3>Це ми</h3>
-    </div>
 </header>
 
 <div class="container">
@@ -79,13 +56,45 @@
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
+<footer class="bg-secondary text-light py-4">
     <div class="container">
-        @if (isAuthenticated)
-        {
-            <b>Ви увійшли до системи!!</b>
-        }
-        &copy; 2024 - ASP_.Net_Core_Class_Home_Work - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Контакты</h5>
+                <ul class="list-unstyled">
+                    <li>Телефон: +123456789</li>
+                    <li>Email: info@example.com</li>
+                    <li>Адрес: ул. Примерная, д. 123</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Ссылки</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Социальные сети</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col footer-bottom-info">
+                 @if (isAuthenticated)
+                 {
+                     <b>Ви увійшли до системи!!</b>
+                 }
+                <p class="text-center">&copy; 2024 Все права защищены</p>
+            </div>
+        </div>
     </div>
 </footer>
  

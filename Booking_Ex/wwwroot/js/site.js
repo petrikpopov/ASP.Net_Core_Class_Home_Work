@@ -10,20 +10,40 @@ document.addEventListener('submit', e=>{
             return;
         }
         let formData = new FormData(form);
-       // console.log(formData);
-        fetch("/api/room",{
-            method:'POST',
-            body:formData
-        }).then(r=>
-            {console.log(r);
-                if(r.status==201){
-                   
+        roomId = formData.get("room-id");
+        if(roomId){
+            console.log("Оновлення кімнати");
+            fetch('/api/room',{
+                method:'PUT',
+                body:formData
+            }).then(r=>
+            {
+                if(r.status<300){
                     window.location.reload();
                 }
                 else{
                     r.text().then(alert);
                 }
             });
+        }
+        else{
+            console.log("Додавання кімнати");
+            fetch("/api/room",{
+                method:'POST',
+                body:formData
+            }).then(r=>
+            {console.log(r);
+                if(r.status==201){
+
+                    window.location.reload();
+                }
+                else{
+                    r.text().then(alert);
+                }
+            });
+        }
+       
+        
     }
     if(form.id == 'category-form')
     {
@@ -166,6 +186,25 @@ function serveAdminButtons(){
                 b.getAttribute("data-location-stars");
         });
     }
+    for(let btn of document.querySelectorAll('[data-type="edit-room"]')){
+        ///room
+        btn.addEventListener('click', e => {
+            let b = e.target.closest('[data-type="edit-room"]');
+            document.querySelector('[name="room-id"]').value =
+                b.getAttribute("data-room-id");
+            document.querySelector('[name="room-name"]').value =
+                b.getAttribute("data-room-name");
+            document.querySelector('[name="room-description"]').value =
+                b.getAttribute("data-room-description");
+            document.querySelector('[name="room-slug"]').value =
+                b.getAttribute("data-room-slug");
+            ///
+            document.querySelector('[name="room-stars"]').value =
+                b.getAttribute("data-room-stars");
+            document.querySelector('[name="room-price"]').value =
+                b.getAttribute("data-room-price");
+        });
+    }
     for(let btn of document.querySelectorAll('[data-type="edit-category"]')){
         btn.addEventListener('click', e => {
             let b = e.target.closest('[data-type="edit-category"]');
@@ -221,6 +260,28 @@ function serveAdminButtons(){
             }
         });
     }
+    ////room
+    for (let btnDelete of document.querySelectorAll('[date-type="delete-room"]')){
+        btnDelete.addEventListener('click', e => {
+            let b = e.target.closest('[date-type="delete-room"]');
+            let id = b.getAttribute("data-room-id");
+            if(id){
+                if(confirm("Вы действительно хотите удалить комнату ?")){
+                    fetch(`/api/room/${id}`,{method: 'DELETE'}).then(r=>{
+                        if(r.status < 400){
+                            window.location.reload();
+                        }
+                        else{
+                            alert("Ошибка при удалении!");
+                        }
+                    })
+                }
+            }
+            else{
+                alert("Ошибка разметки - нет id элемента!");
+            }
+        });
+    }
     for (let btnRest of document.querySelectorAll('[date-type="restore-category"]')) {
         btnRest.addEventListener('click', e => {
             let b = e.target.closest('[date-type="restore-category"]');
@@ -249,6 +310,27 @@ function serveAdminButtons(){
             if (id) {
                 if (confirm("Вы действительно хотите востановить локацию ?")) {
                     fetch(`/api/location?id=${id}`, {method: 'RESTORE'}).then(r => {
+                        if (r.status < 400) {
+                            window.location.reload();
+                            //r.text().then(console.log);
+                        } else {
+                            alert("Ошибка при востановлении!");
+                        }
+                    })
+                }
+            } else {
+                alert("Ошибка разметки - нет id элемента!");
+            }
+        });
+    }
+    ////// room
+    for (let btnRest of document.querySelectorAll('[date-type="restore-room"]')) {
+        btnRest.addEventListener('click', e => {
+            let b = e.target.closest('[date-type="restore-room"]');
+            let id = b.getAttribute("data-room-id");
+            if (id) {
+                if (confirm("Вы действительно хотите востановить комнату ?")) {
+                    fetch(`/api/room?id=${id}`, {method: 'RESTORE'}).then(r => {
                         if (r.status < 400) {
                             window.location.reload();
                             //r.text().then(console.log);
