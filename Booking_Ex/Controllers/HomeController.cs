@@ -21,19 +21,17 @@ public class HomeController : Controller
 {
     //Інжекція сервісів(залежностей) - запит у контейнера на передачу посилань на відповідь обьети. Найбільш рекомендований спосіб інжекціі - через конструктор. Це дозволяє , по-перше, оголосити поля як незмінні (redonly), та по-друге, унеможливити створення обьектів без передачі залежностей. У стартовому проєкті інжекція демонструється на сервіси логування (_logger).
     private readonly ILogger<HomeController> _logger;
-    // Створюємо поле для посилання на сервіс
     private readonly IHashService _hashService;
 
     private readonly IRandomService _iRandomService;
-    // Додаємо до конструктора параметр - залежність і зберігаємо іі у тілі
     private readonly DataContext _dataContext;
     private readonly DataAccessor _dataAccessor;
     private readonly IKdfService _kdfService;
     private readonly IEmailService _emailService;
     public HomeController(ILogger<HomeController> logger, IHashService hashService, IRandomService randomService,  DataAccessor dataAccessor, IKdfService kdfService,IEmailService _emailService)
     {
-        _logger = logger; // збереження переданніх залежностей , що іх
-        _hashService = hashService;// передасть контейнер прі створенні контроллера
+        _logger = logger; 
+        _hashService = hashService;
         _iRandomService = randomService;
         _dataAccessor = dataAccessor;
         _kdfService = kdfService;
@@ -42,18 +40,14 @@ public class HomeController : Controller
 
     public IActionResult ConfirmEmail(string id)
     {
-        /*
-         * Ідея Вasic-автентифікаціі -- розділення логіну та поролю через 
-         dXNlckBpLnVhOnF3ZTEyMw==
-         */
         string email, code;
         try
         {
             string data =
-                System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(id)); // user@i.ua:qwe123
-            string[] parts = data.Split(':', 2); // [ user@i.ua, qwe123]
-            email = parts[0]; // user@i.ua
-            code = parts[1]; // qwe123
+                System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(id)); 
+            string[] parts = data.Split(':', 2); 
+            email = parts[0]; 
+            code = parts[1]; 
             ViewData["result"] = _dataAccessor.UserDao.ConfirmEmail(email, code)
                 ? "Пошта підтверджена"
                 : "Помилка підтвердження пошти";
@@ -129,7 +123,7 @@ public class HomeController : Controller
                
             }
         }
-       // _logger.LogInformation(Directory.GetCurrentDirectory());
+     
         return View(pageModel);
     }
 
@@ -177,8 +171,6 @@ public class HomeController : Controller
 
             if (model.UserAvatar != null)
             {
-                // є файл аналізуємо його 
-                // дізнажмось рожшірення фалу
                 int dotPosition = model.UserAvatar.FileName.LastIndexOf('.');
                 if (dotPosition == -1)
                 {
@@ -209,7 +201,7 @@ public class HomeController : Controller
         return result;
     }
 
-    [HttpPost]  // атрибут дозволяє запит лише POST-методом.
+    [HttpPost] 
     public JsonResult FrontendForm([FromBody] FrontendFormInput input)
     {
         FrontendFormOut frontendFormOut = new()

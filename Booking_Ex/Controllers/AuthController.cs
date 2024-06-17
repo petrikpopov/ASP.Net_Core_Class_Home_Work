@@ -72,16 +72,4 @@ public class AuthController : ControllerBase
         return _dataAccessor.UserDao.CreateTokenForUser(user);
     }
 }
-/*
- * Схемы авторизаціі API. Токени
- * Розрізняють дві групи схеми
- * - серверні сесіх - підходить для Server-Page архітектури
- * - токени - для SPA архітектури
- * Токен (від анг - жетон , посвідчення) - дані , що дозворяють автентифікувати запит від фронтенду.
- *
- * Back                  Front
- *     <---------------[login, password]
- *     [token] ---------->
- *        <------------[GET/ rooms token: 123]
- *    [перевірка токена] -------> 
- */
+

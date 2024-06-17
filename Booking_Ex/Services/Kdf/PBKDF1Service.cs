@@ -20,5 +20,3 @@ public class PBKDF1Service : IKdfService
         return t3;
     }
 }
-//Згідно з п 5.1 PBKDF1 приймаємо з 3
-//https://datatracker.ietf.org/doc/html/rfc2898#section-5.1

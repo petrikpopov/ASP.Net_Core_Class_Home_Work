@@ -8,7 +8,7 @@ public class Room
     public int? Stars { set; get; }
     public string Name { set; get; } = null!;
     public string Description { set; get; } = null!;
-    public DateTime? DeleteDt { get; set; }// ознака доступності
+    public DateTime? DeleteDt { get; set; }
     public Double DailyPrice { get; set; }
     public string? Slug { get;set; }
     public string? PhotoUrl { get; set; }

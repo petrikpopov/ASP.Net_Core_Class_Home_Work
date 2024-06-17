@@ -10,4 +10,3 @@ public class Category
     
     public string? Slug { get;set; } // slug - ідентифікатор ресурсу
 }
-//{09B2381F-452A-4621-8317-CCE6E3EE1A20}

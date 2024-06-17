@@ -45,7 +45,7 @@ public class RoomController: BackendController
     }
     
     [HttpGet("{id}")]
-    public Room GetRoom([FromRoute] string id /*[FromQuery] int? year, [FromQuery] int? moth*/)
+    public Room GetRoom([FromRoute] string id)
     {
         var room = _dataAccessor._ContentDao.GetRoomBySlug(id);
         if (room == null)
@@ -148,7 +148,7 @@ public class RoomController: BackendController
         {
             room.Stars = model.Stars;
         }
-        if (model.Photo != null)   // передається новий файл - зберігаємо новий, видаляємо старий
+        if (model.Photo != null)  
         {
 
             try
@@ -178,8 +178,7 @@ public class RoomController: BackendController
                 using var stream = System.IO.File.OpenWrite(pathName);
 
                 model.Photo.CopyTo(stream);
-                // новий файл успішно завантажений - видаляємо старий
-
+               
                 if (!String.IsNullOrEmpty((room.PhotoUrl)))
                 {
                     try
@@ -192,7 +191,7 @@ public class RoomController: BackendController
                     }
                      
                 } 
-                // зберігаємо нове ім'я 
+               
 
                 room.PhotoUrl = fileName;
 
@@ -219,11 +218,11 @@ public class RoomController: BackendController
         
         if (!base.isAuthentication)
         {
-            // якщо авторизація не пройдена то повідомлення а Items
+            
             Response.StatusCode = StatusCodes.Status401Unauthorized;
             return "Authorization failed!";
         }
-        // перевіряємо що немає разбіжності ID користувача з авторизаціі та форми.
+       
          if ( base.claims?.First(c => c.Type == ClaimTypes.Sid)?.Value != model.UserId.ToString())
          {
              Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
@@ -236,7 +235,7 @@ public class RoomController: BackendController
             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
             return "Room is reserved for requested date!";
         }
-        if (model.Date < DateTime.Today) // Перевіряємо, що дата резервування не є минулою.
+        if (model.Date < DateTime.Today) 
         {
             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
             return "Cannot reserve for a past date!";

@@ -44,7 +44,7 @@ public class LocationController: BackendController
             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
             return $"Parameter 'location-id' ({model.CategoryId}) belongs to no entity. ";
         }
-        // оновлення даних - якщо немає данних то залішається попереднє значення
+
         if (!string.IsNullOrEmpty(model.Name))
         {
             location.Name = model.Name;
@@ -62,7 +62,7 @@ public class LocationController: BackendController
         {
             location.Stars = model.Stars;
         }
-        if (model.Photo != null)   // передається новий файл - зберігаємо новий, видаляємо старий
+        if (model.Photo != null) 
         {
 
             try
@@ -92,7 +92,6 @@ public class LocationController: BackendController
                 using var stream = System.IO.File.OpenWrite(pathName);
 
                 model.Photo.CopyTo(stream);
-                // новий файл успішно завантажений - видаляємо старий
 
                 if (!String.IsNullOrEmpty((location.PhotoUrl)))
                 {
@@ -106,7 +105,6 @@ public class LocationController: BackendController
                     }
                      
                 } 
-                // зберігаємо нове ім'я 
 
                 location.PhotoUrl = fileName;
 

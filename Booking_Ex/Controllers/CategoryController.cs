@@ -10,33 +10,16 @@ using Microsoft.AspNetCore.Mvc;
 
 [Route("api/category")]
 [ApiController]
-// IActionFilter - засоби для дій що виконуються до вільного Action-iв
+
 public class CategoryController : BackendController
 {
     private readonly DataAccessor _DataAccessor;
     private readonly ILogger<CategoryController> _logger;
-    // private bool isAuthentication;
-    // private bool iaAdmin;
     public CategoryController(DataAccessor dataAccessor, ILogger<CategoryController> _logger)
     {
         _DataAccessor = dataAccessor;
         this._logger = _logger;
     }
-    // метод IActionFilter, що виконується ДО дій контролера (DoGet, DoPost,...)
-    // [NonAction]
-    // public void OnActionExecuting(ActionExecutingContext context)
-    // {
-    //    
-    //     // У проекті є жві авторизаціі - через сесіі та через токени
-    //     // Первинна авторизація за сесією 
-    //     // Дані авторизаціі за токеном шукаємо за типом авторизації яку ми встановили як назва класу AuthTokenMiddleware
-    //     var identity = User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthSessionMiddleware));
-    //     identity ??=  User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
-    //     this.isAuthentication = identity != null;
-    //     String? useRole = identity?.Claims.FirstOrDefault(c=>c.Type==ClaimTypes.Role)?.Value; 
-    //     this.iaAdmin = "Admin".Equals(useRole);
-    //    
-    // }
     
     [HttpGet]
     public List<Category> DoGet()
@@ -47,9 +30,6 @@ public class CategoryController : BackendController
     [HttpPost]
     public string DoPost([FromForm]CategoryPostModel model)
     {
-       
-        // var identity = User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthSessionMiddleware));
-        // identity ??=  User.Identities.FirstOrDefault(i => i.AuthenticationType == nameof(AuthTokenMiddleware));
         if (GetAdminAuthMessage() is String msg)
         {
            return msg;
@@ -93,20 +73,17 @@ public class CategoryController : BackendController
         {
             return msg;
         }
-        // перевіряємо CategoryId на наявність
         if (model.CategoryId==null || model.CategoryId==default(Guid))
         {
             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
             return "Missing required parameter: 'category-id' ";
         }
-        // перевіряємо чи є така ктегорія
         Category? category = _DataAccessor._ContentDao.GetCategoryById(model.CategoryId.Value);
         if (category == null)
         {
             Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
             return $"Parameter 'category-id' ({model.CategoryId.Value}) belongs to no entity. ";
         }
-        // оновлення даних - якщо немає данних то залішається попереднє значення
         if (!string.IsNullOrEmpty(model.Name))
         {
             category.Name = model.Name;
@@ -119,7 +96,7 @@ public class CategoryController : BackendController
         {
             category.Slug = model.Slug;
         }
-        if (model.Photo != null)   // передається новий файл - зберігаємо новий, видаляємо старий
+        if (model.Photo != null) 
         {
 
             try
@@ -149,7 +126,6 @@ public class CategoryController : BackendController
                 using var stream = System.IO.File.OpenWrite(pathName);
 
                 model.Photo.CopyTo(stream);
-                // новий файл успішно завантажений - видаляємо старий
 
                 if (!String.IsNullOrEmpty((category.PhotoUrl)))
                 {
@@ -163,7 +139,7 @@ public class CategoryController : BackendController
                     }
                      
                 } 
-                // зберігаємо нове ім'я 
+               
 
                 category.PhotoUrl = fileName;
 
@@ -195,10 +171,6 @@ public class CategoryController : BackendController
         Response.StatusCode = StatusCodes.Status202Accepted;
         return "Ok";
     }
-    
-    // метод не позначений атрибутом буде викликано , якщо не знайдеться
-    // необхідний з позначених. Це доволяє прийняти нестандартні запити
-
     public Object DoOther()
     {
         if (Request.Method == "RESTORE")
@@ -209,7 +181,7 @@ public class CategoryController : BackendController
         Response.StatusCode = StatusCodes.Status405MethodNotAllowed;
         return "Method Not Allowed";
     }
-   // Другій НЕ позначений метод private щоб не було конфлікту
+  
     private string DoRestore()
     {
         if (GetAdminAuthMessage() is String msg)
@@ -231,12 +203,7 @@ public class CategoryController : BackendController
         return "RESTORE works with id = " + id;
     }
  
-    // метод IActionFilter, що виконується ПІСЛЯ дій контролера (DoGet, DoPost,...)
-    // [NonAction] // Якщо неможна зробити метод private то позначаємо атрибутом [NonAction]
-    // public void OnActionExecuted(ActionExecutedContext context)
-    // {
-    //    
-    // }
+
     public class CategoryPostModel
     {
         [FromForm(Name="category-name")]

@@ -17,18 +17,13 @@ public class DataContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //оскільки  Slug - ідентифікатор , він має бути унікальним
         modelBuilder.Entity<Category>().HasIndex(c => c.Slug).IsUnique();
         modelBuilder.Entity<Location>().HasIndex(l => l.Slug).IsUnique();
         modelBuilder.Entity<Room>().HasIndex(r => r.Slug).IsUnique();
         modelBuilder.Entity<Entities.Reservation>().HasOne(r => r.User).WithMany(u=>u.Reservations).HasForeignKey(r => r.UserId);
         modelBuilder.Entity<Entities.Reservation>().HasOne(r => r.Room).WithMany(r=>r.Reservations).HasForeignKey(r => r.RoomId);
         modelBuilder.Entity<Entities.Token>().HasOne(t => t.User).WithMany();
-        //base.OnModelCreating(modelBuilder);
+       
     }
-
-    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        base.OnConfiguring(optionsBuilder);
-    }*/
+    
 }

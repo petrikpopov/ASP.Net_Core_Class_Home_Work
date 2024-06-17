@@ -11,7 +11,7 @@ public class UserDao
     private readonly Object _dbLocker;
     public readonly DataContext _DataContext;
     private readonly IKdfService _kdfService;
-    //private readonly L
+   
     public UserDao(DataContext dataContext, IKdfService kdfService , Object _dbLocker)
     {
         _DataContext = dataContext;
@@ -48,16 +48,7 @@ public class UserDao
 
         return user;
     }
-    // public Token? GetTokenById(Guid tokenId)
-    // {
-    //     Token? token;
-    //     lock (_dbLocker)
-    //     {
-    //         token = _DataContext.Token.Include(t => t.User).FirstOrDefault(t => t.Id == tokenId);
-    //     }
-    //
-    //     return token;
-    // }
+   
     public Token CreateTokenForUser(User user)
     {
         return CreateTokenForUser(user.Id);
@@ -68,10 +59,10 @@ public class UserDao
             .FirstOrDefault(t => t.UserID == userid && t.ExpireDt > DateTime.Now);
         if (existingToken != null)
         { 
-            return existingToken; // Если активный токен уже существует, возвращаю его
+            return existingToken; 
         }
         
-        Token token = new() // // Генерирую новый токен
+        Token token = new() 
         {
             Id = Guid.NewGuid(),
             UserID = userid,
@@ -120,7 +111,6 @@ public class UserDao
 
     public Boolean ConfirmEmail(string email, string code)
     {
-        // Find user by email
         User? user;
         lock(_dbLocker)
         {

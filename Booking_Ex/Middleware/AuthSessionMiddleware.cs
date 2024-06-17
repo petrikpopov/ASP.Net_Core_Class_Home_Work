@@ -11,24 +11,22 @@ public class AuthSessionMiddleware
     {
         _next = next;
     }
-    // в силу особливостей роботи Middleware інжекція сервісів здійснюється не у конструктор а у параметр методу
+   
     public async Task InvokeAsync(HttpContext context, DataAccessor dataAccessor)
     {
-       //чи не запитано вихід
+       
        if (context.Request.Query.ContainsKey("logout"))
        {
            context.Session.Remove("auth-user-id");
            context.Response.Redirect("/");
-           return; // без _next це припинить роботу
+           return; 
        }
        else if (context.Session.GetString("auth-user-id") is String userId)
         {
-            // прямий хід від запиту да Razoz
+            
             var user = dataAccessor.UserDao.GetUserByID(userId);
             if (user != null)
             {
-                 // система авторизаціі ASP передбачає заповнення спеціального поля 
-                 //context.User - набору спеціальних Claims-параметрів , кожен з яких видповидає за свій атрибут (id,email,......)
                  Claim[] claims = new Claim[]
                  {
                      new (ClaimTypes.Sid, userId),
@@ -39,7 +37,7 @@ public class AuthSessionMiddleware
                      new ("EmailConfirmCode", user.EmailConfirmCode??"")
                  };
                  context.User = new ClaimsPrincipal(new ClaimsIdentity(claims, nameof(AuthSessionMiddleware)));
-                 //context.Items.Add("auth", "ok");
+                
             }
 
            
@@ -47,7 +45,7 @@ public class AuthSessionMiddleware
         }
 
         await _next(context);
-        // зворотній хід від Razoz до відповіді
+       
     }
 }
 

@@ -12,7 +12,6 @@ public class GmailServise : IEmailService
     }
     public void Send(MailMessage mailMessage)
     {
-        // Вилучаємо данні з конфігураціі
         var smtp = _configuration.GetSection("smtp");
         String? host = smtp.GetSection("host").Value;
         String? email = smtp.GetSection("email").Value;
@@ -23,7 +22,7 @@ public class GmailServise : IEmailService
         {
             throw new Exception("Config error");
         }
-        // підключаємось до SMTP-server
+       
         using SmtpClient smtpClient = new()
         {
             Host = host,

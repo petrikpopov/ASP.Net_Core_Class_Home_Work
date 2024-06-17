@@ -12,7 +12,7 @@ public class Reservation
     public Double Price { get; set; }
    
     public DateTime OrderDateTime { set; get; }
-    public DateTime? DeleteDt { set; get; } // ознака видалення - null-активне
+    public DateTime? DeleteDt { set; get; } 
 
     // navigation props
     [JsonIgnore] public User User { set; get; }
