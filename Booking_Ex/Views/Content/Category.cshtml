@@ -8,7 +8,7 @@
     ViewData["role"] = role;
 }
 <h1>@Model.Category.Name</h1> 
-<div class="card-group row row-cols-1 row-cols-md-3 g-4">
+<div class="card-group row row-cols-1 row-cols-md-4 g-4">
     @foreach (var location in Model.Locations)
     {
         @Html.DisplayFor(m=>location,"LocationTemplate")
@@ -49,12 +49,22 @@
                            aria-label="Category Slug" aria-describedby="location-slug">
                 </div>
             </div>
-             <div class="col">
+            <div class="col">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="location-stars"><i class="bi bi-stars"></i></span>
                     <input type="text" class="form-control" placeholder="Stars"
                            name="location-stars"
                            aria-label="Category Slug" aria-describedby="location-slug">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="location-street"><i class="bi bi-signpost"></i></span>
+                    <input type="text" class="form-control" placeholder="Street"
+                           name="location-street"
+                           aria-label="Category Street" aria-describedby="location-street">
                 </div>
             </div>
             <div class="col">

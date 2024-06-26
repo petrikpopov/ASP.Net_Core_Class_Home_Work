@@ -9,11 +9,18 @@
             <img class="card-img-top" src="~/img/Content/@(Model.PhotoUrl ?? "no-image.jpg")" alt="Card image cap">
             <div class="card-body">
                  @if (isDelete)
-                    {
-                        <i>Удалено @(Model.DeleteDt)</i>
-                    }
-                <h5 class="card-title">@Model.Name</h5>
-                <p class="card-text">@Model.Description</p>
+                {
+                    <i>Удалено @(Model.DeleteDt)</i>
+                }
+                 <h5 class="card-title">@Model.Name</h5>
+                 <p class="card-text">@Model.Description</p>
+                  <p class="street"><i class="bi bi-signpost-split"></i> @Model.Street</p>
+                 <p class="stars-room">
+                     @for (int i = 0; i < @Model.Stars; i++)
+                     {
+                         <span><i class="bi bi-star-fill"></i></span>
+                     }
+                 </p>
             </div>
         </a>
          @if ("Admin".Equals(ViewData["role"]))
@@ -28,7 +35,7 @@
                      <button class="btn btn-outline-danger" date-type="delete-location" data-location-id="@(Model.Id)">Delete</button>
                 }
         
-                <button class="btn btn-outline-warning" data-location-slug="@(Model.Slug)" data-location-name="@(Model.Name)" data-location-description="@(Model.Description)" data-type="edit-location" data-location-stars="@(Model.Stars)"  data-location-id="@(Model.Id)">Edit</button>
+                <button class="btn btn-outline-warning" data-location-slug="@(Model.Slug)" data-location-name="@(Model.Name)" data-location-description="@(Model.Description)" data-type="edit-location" data-location-stars="@(Model.Stars)" data-location-street="@(Model.Street)" data-location-id="@(Model.Id)">Edit</button>
             </div>
         }
     </div>

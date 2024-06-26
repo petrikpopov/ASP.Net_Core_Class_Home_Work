@@ -57,7 +57,10 @@ public class LocationController: BackendController
         {
             location.Slug = model.Slug;
         }
-
+        if (!string.IsNullOrEmpty(model.Street))
+        {
+            location.Street = model.Street;
+        }
         if (model.Stars > 0)
         {
             location.Stars = model.Stars;
@@ -163,7 +166,8 @@ public class LocationController: BackendController
                 CategoryId:model.CategoryId,
                 Stars:model.Stars,
                 PhotoUrl:fileName, 
-                slug:model.Slug);
+                slug:model.Slug,
+                Street:model.Street);
             Response.StatusCode = StatusCodes.Status201Created;
             return "Ok";
         }
@@ -233,14 +237,19 @@ public class LocationController: BackendController
         public Guid CategoryId { set; get; }
         
         [FromForm(Name="location-slug")]
-        public string Slug { set; get; }
+        public string Slug { set; get; } 
+        
         [FromForm(Name="location-stars")]
         public int Stars { set; get; }
+        
         [FromForm(Name="location-photo")]
         public IFormFile Photo { set; get; }
         
         [FromForm(Name="location-id")]
         public Guid? LocationID { set; get; }
+        
+        [FromForm(Name="location-street")]
+        public string Street { set; get; }
         
 
     }

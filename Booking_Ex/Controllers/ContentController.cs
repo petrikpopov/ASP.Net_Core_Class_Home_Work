@@ -57,7 +57,7 @@ public class ContentController : Controller
             });
     }
 
-    public IActionResult Room([FromRoute] string id, [FromQuery]int? year, [FromQuery]int? moth)
+    public IActionResult Room([FromRoute] string id, [FromQuery]int? year, [FromQuery]int? month)
     {
         var room = dataAccessor._ContentDao.GetRoomBySlug(id);
         
@@ -67,7 +67,7 @@ public class ContentController : Controller
             {
                Room = room,
                Year = year ?? DateTime.Today.Year,
-               Month = moth ?? DateTime.Today.Month
+               Month = month ?? DateTime.Today.Month
             });
     }
 }

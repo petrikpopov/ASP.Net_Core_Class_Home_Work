@@ -23,7 +23,6 @@ public class DataContext : DbContext
         modelBuilder.Entity<Entities.Reservation>().HasOne(r => r.User).WithMany(u=>u.Reservations).HasForeignKey(r => r.UserId);
         modelBuilder.Entity<Entities.Reservation>().HasOne(r => r.Room).WithMany(r=>r.Reservations).HasForeignKey(r => r.RoomId);
         modelBuilder.Entity<Entities.Token>().HasOne(t => t.User).WithMany();
-       
     }
     
 }

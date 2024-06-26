@@ -5,6 +5,7 @@
     string emailConfirmCode = Context.User.Claims.FirstOrDefault(claim =>claim.Type=="EmailConfirmCode")?.Value ?? "";
     bool isEmailConfirmed = emailConfirmCode == "";
     string email = Context.User.Claims.FirstOrDefault(claim =>claim.Type==ClaimTypes.Email)?.Value ?? "";
+   
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -27,13 +28,11 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item main-page" >
-                        <a class="nav-link text-dark main-page-ref" asp-area="" asp-controller="Home" asp-action="Index">Booking</a>
-                    </li>
                     <li class="nav-item main-page">
-                        <a class="nav-link text-dark main-page-ref" title="Content" asp-area="" asp-controller="Content" asp-action="Index"><i class="bi bi-house-heart-fill"></i></a>
+                        <a class="nav-link text-dark main-page-ref" title="Content" asp-area="" asp-controller="Content" asp-action="Index">Booking.com</a>
                     </li>
                 </ul>
+                
                 <div class="login-register">
                      @if (isAuthenticated)
                      { 
@@ -43,7 +42,7 @@
                              <i data-bs-toggle="modal" data-bs-target="#emailModal" style="color:red" class="mx-2 bi bi-envelope-dash" title="Ваша пошта не підтверджена"></i>
                          }
                         
-                         <a asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
+                         <a class="exit" asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-right"></i>Вийти</a>
                      }
                      else
                      {
@@ -66,7 +65,7 @@
         @RenderBody()
     </main>
 </div>
-<footer class="bg-secondary text-light py-4">
+<footer class="bg-primary text-light py-4">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -108,16 +107,6 @@
     </div>
 </footer>
 
-@* <footer class="border-top footer text-muted"> *@
-@*     <div class="container"> *@
-@*         @if (isAuthenticated) *@
-@*         { *@
-@*             <b>Ви увійшли до системи!!</b> *@
-@*         } *@
-@*         &copy; 2024 - ASP_.Net_Core_Class_Home_Work - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
-@*     </div> *@
-@* </footer> *@
- 
 <!-- Email Confirm Modal -->
     <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

@@ -6,7 +6,7 @@
     string role = isAuthenticated? Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Role).Value: "";
     ViewData["role"] = role;
 }
-<div class="card-group row row-cols-1 row-cols-md-3 g-4">
+<div class="card-group row row-cols-1 row-cols-md-4 g-4">
   @foreach (var categoty in Model.categories)
   {
     @Html.DisplayFor(m=>categoty, "Category")
@@ -56,7 +56,7 @@
  
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn btn-secondary"
+                <button type="submit" class="btn btn-primary"
                         name="category-button" value="true">
                     Зберегти
                 </button>

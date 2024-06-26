@@ -3,7 +3,7 @@
 document.addEventListener('submit', e=>{
     console.log(e);
     const form = e.target;
-    if(form.id == 'room-form')// перехоплюємо надсилання форми і переводимо до аякс
+    if(form.id == 'room-form')// перехоплюю надсилання форми і переводжу до аякс
     {
         e.preventDefault();
         if(!addNewRoom()){
@@ -124,8 +124,8 @@ document.addEventListener('submit', e=>{
         
         
     }
-    // на інші форми ми не вплюваємо
 });
+
 
 document.addEventListener('DOMContentLoaded',function (){
    const autorButton = document.getElementById("auth-button");
@@ -160,6 +160,7 @@ function confirmEmailClick(){
     const email = emailCodeInput.getAttribute('data-email');
     fetch(`/api/auth?email=${email}&code=${code}`,{method:'PATCH'}).then(r=>{
         if(r.status==202){
+           alert('Код прийнято!');
            window.location.reload();
         }
         else{
@@ -184,6 +185,10 @@ function serveAdminButtons(){
             ///
             document.querySelector('[name="location-stars"]').value =
                 b.getAttribute("data-location-stars");
+            document.querySelector('[name="location-street"]').value =
+                b.getAttribute("data-location-street");
+            ///
+            
         });
     }
     for(let btn of document.querySelectorAll('[data-type="edit-room"]')){
@@ -631,11 +636,7 @@ function serveReserveButtons() {
         btn.addEventListener('click', e => {
             const cont = e.target.closest('[data-type="drop-reserve-room"]');
             const reservId = cont.getAttribute('data-reserve-id');
-            const roomName = cont.getAttribute('data-room-name-cancellation');
-            const roomDate = cont.getAttribute('data-room-reserve-date');
-            const trimmedDate = roomDate.substring(0,10);
-            //console.log(roomId, userId, date);
-            if(!confirm(`Чи підтверджуєте ви скасування заброньованого номера: ${roomName}, на дату: ${trimmedDate}`))
+            if(!confirm(`Чи підтверджуєте ви скасування заброньованого номера ?`))
             {
                 return;
             }

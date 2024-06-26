@@ -6,8 +6,8 @@
     string role = isAuthenticated? Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Role).Value: "";
     ViewData["role"] = role;
 }
-<h1>Location:@Model.Location.Name</h1>
-<div class="card-group row row-cols-1 row-cols-md-3 g-4">
+<h1>@Model.Location.Name</h1>
+<div class="card-group row row-cols-1 row-cols-md-4 g-4">
     @foreach (var room in @Model.Rooms)
     {
         @Html.DisplayFor(m=>room,"RoomTemplates");
@@ -81,7 +81,7 @@
         </div>
         <div class="row">
              <div class="col">
-                <button type="submit" class="btn btn-danger"
+                <button type="submit" class="btn btn-primary"
                         name="room-button" id="room-button" value="true">
                     Додати кімнату
                 </button>

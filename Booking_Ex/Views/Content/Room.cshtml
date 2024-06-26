@@ -6,29 +6,29 @@
     Guid? userId = isAuthenticated? Guid.Parse((ReadOnlySpan<char>)Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Sid).Value): null;
 }
 <div class="row">
-      <div class="col col-8">
-          <h1>Кимната:@Model.Room.Name</h1>
-          <img class="card-img-top" src="~/img/Content/@(Model.Room.PhotoUrl ?? "no-image.jpg")" alt="Card image cap">
-          <h2>@Model.Room.Description</h2>
-      </div>
-    <div class="col col-4">
+    <div class="col col-7">
+        <h1>Кімната: №@Model.Room.Name</h1>
+        <img class="card-img-room" src="~/img/Content/@(Model.Room.PhotoUrl ?? "no-image.jpg")" alt="Card image cap">
+        <h2>@Model.Room.Description</h2>
+    </div>
+    <div class="col col-5">
         <form>
             Бронювання кімнати на місяць
             <select name="month">
-                @for (int i = DateTime.Now.Month; i <= DateTime.Today.Month+4; i++)
+                @for (int i = 1; i <= 12; i++)
                 {
                     if (i == Model.Month)
                     {
-                        <option selected="" value="@i">@i</option>
+                        <option selected value="@i">@(i.ToString("D2"))</option>
                     }
                     else
                     {
-                        <option value="@i">@i</option>
+                        <option value="@i">@(i.ToString("D2"))</option>
                     }
                 }
             </select> року
             <select name="year">
-                @for (int i = DateTime.Now.Year; i <= DateTime.Today.Year+1; i++)
+                @for (int i = DateTime.Now.Year; i <= DateTime.Today.Year + 1; i++)
                 {
                     if (i == Model.Year)
                     {
@@ -40,7 +40,7 @@
                     }
                 }
             </select>
-            <button>Оновити</button>
+            <button class="btn btn-primary btn-refresh">Оновити</button>
         </form>
        @{
            int freeDays = 0;
@@ -67,7 +67,6 @@
                allDays++;
                if (!isReserved) freeDays++;
                if (isReserved) itemClass = "item-reserved";
-       
                <div class="calendar-item @itemClass @authClass">
                    @if (isReserved && isOwn)
                    {

@@ -25,14 +25,14 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item main-page" >
-                        <a class="nav-link text-dark main-page-ref" asp-area="" asp-controller="Home" asp-action="Index">Booking</a>
+                        <a class="nav-link text-dark main-page-ref" asp-area="" asp-controller="Content" asp-action="Index">Booking.com</a>
                     </li>
                 </ul>
                 <div class="login-register">
                     @if (isAuthenticated)
                     {
                         <img class="size-40 rounded-circle" src="/img/avatars/@(avatar=="" ? "no-avatar.png":avatar)" alt="avatars"/>
-                        <a asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-left"></i></a>
+                        <a class="exit" asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-left"></i>Вийти</a>
                     }
                     else
                     {

@@ -88,6 +88,9 @@ namespace ASP_.Net_Core_Class_Home_Work.Migrations
                     b.Property<int?>("Stars")
                         .HasColumnType("int");
 
+                    b.Property<string>("Street")
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Slug")

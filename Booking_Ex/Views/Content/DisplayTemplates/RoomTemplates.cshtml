@@ -14,7 +14,17 @@
                 }
                 <h5 class="card-title">@Model.Name</h5>
                 <p class="card-text">@Model.Description</p>
-                <b class="card-text">Цена за номер: @Model.DailyPrice.ToString("F2")</b>
+                <div class="stars-price">
+                   <p class="stars-room">
+                       @for (int i = 0; i <= @Model.Stars; i++)
+                       {
+                           <span><i class="bi bi-star-fill"></i></span>
+                       }
+                      
+                   </p>
+                   <b class="card-text">Цена за номер: @Model.DailyPrice.ToString("F2")</b> 
+                </div>
+                
             </div>
         </a>
          @if ("Admin".Equals(ViewData["role"]))

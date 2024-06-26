@@ -11,19 +11,11 @@ using ASP_.Net_Core_Class_Home_Work.Services.Random;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("emailconfig.json", false);
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
 
-//Додаємо власні сервіси до контейнера builder.Services
-//це можна робити у довільному порядку , але жо команди
-// var app = builder.Services();
-// Сервіси , створені з дотриманням DIP реєструються як зьязка (binding) між інтерфейсом та классом , що його реалізує
-// Інжекціі IHashService контейнер має повернути обьект класу Md5HashService
-
-//builder.Services.AddSingleton<IHashService, Md5HashService>();
-// перехід між різними реалізаціями одного сервісу - одін рядок змін
 builder.Services.AddSingleton<IHashService, ShaHashService>();
-//
+
 builder.Services.AddSingleton<IRandomService, RandomService>();
 
 string connectionString = builder.Configuration.GetConnectionString("LocalMySQL");
@@ -34,7 +26,7 @@ builder.Services.AddDbContext<DataContext>(option =>
 builder.Services.AddSingleton<DataAccessor>();
 builder.Services.AddSingleton<IKdfService, PBKDF1Service>();
 builder.Services.AddSingleton<IEmailService, GmailServise>();
-// налаштування сесіі
+
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
@@ -46,7 +38,6 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -73,13 +64,11 @@ app.UseAuthorization();
 // підключення
 app.UseSession();
 
-// підключаємо свій Middleware
-//app.UseMiddleware<AuthSessionMiddleware>();
 app.UseAuthSession();
 app.UseAuthToken();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Content}/{action=Index}/{id?}");
 
 app.Run();

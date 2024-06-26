@@ -123,7 +123,7 @@ public class ContentDao
     // // // // // location
     public void AddLocation(String name, String description,Guid CategoryId,
         int? Stars = null, Guid? CountryId = null, 
-        Guid? CityId = null, string? Address = null, string? PhotoUrl = null, string? slug = null)
+        Guid? CityId = null, string? Address = null, string? PhotoUrl = null, string? slug = null, string ? Street = null)
     {
         if (slug == null)
         {
@@ -143,7 +143,8 @@ public class ContentDao
                 Address = Address,
                 DeleteDt = null,
                 PhotoUrl = PhotoUrl,
-                Slug = slug
+                Slug = slug,
+                Street = Street
             });
             _context.SaveChanges();
         }
@@ -198,6 +199,7 @@ public class ContentDao
             lct.DeleteDt = location.DeleteDt;
             lct.PhotoUrl = location.PhotoUrl;
             lct.Stars = location.Stars;
+            lct.Street = location.Street;
         }
 
         lock (_dbLocker)
