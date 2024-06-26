@@ -39,7 +39,7 @@
                          <img class="size-40 rounded-circle" src="/img/avatars/@(avatar=="" ? "no-avatar.png":avatar)" alt="avatars"/>
                          if (!isEmailConfirmed)
                          {
-                             <i data-bs-toggle="modal" data-bs-target="#emailModal" style="color:red" class="mx-2 bi bi-envelope-dash" title="Ваша пошта не підтверджена"></i>
+                             <i data-bs-toggle="modal" data-bs-target="#emailModal" style="color:red; font-size: 30px; cursor:pointer;" class="mx-2 bi bi-envelope-dash" title="Ваша пошта не підтверджена"></i>
                          }
                         
                          <a class="exit" asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-right"></i>Вийти</a>

@@ -147,7 +147,27 @@ a{
 
 .item-free{
   color: #41c21b;
+  transition: 0.3s ;
+}
 
+.col-wrapper-description-room{
+  border: .1px solid gray;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.col-wrapper-description-room h1 {
+  margin-bottom: 12px;  
+}
+
+.col-wrapper-description-room h2{
+  text-align: center;  
+  margin-top: 5px;
+}
+
+.item-free:hover{
+    font-size: 21px;
 }
 
 .item-past{
@@ -164,11 +184,20 @@ a{
 .calendar{
   display: flex;
   flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.form-select{
+  width: auto;
+  margin-left: 4px;
+  margin-right: 10px;
 }
 
 .calendar-item{
   width: 14%;
-  border: 1px solid grey;
+  border: .2px solid grey;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .bi-star-fill::before {
@@ -188,7 +217,7 @@ h1{
 .btn-refresh{
   margin-left: 10px;
   height: 37px;
-  margin-bottom: 9px;
+  width: 147px;
 }
 
 footer {
@@ -231,7 +260,8 @@ footer .footer-bottom-info{
 
 .card-img-room{
   width: 100%;
-  height: 400px;
+  height: 540px;
+  border-radius: 25px;
 }
 footer .container{
   padding: 30px 0 30px 0 !important;

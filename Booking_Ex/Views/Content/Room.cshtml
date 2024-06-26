@@ -6,15 +6,15 @@
     Guid? userId = isAuthenticated? Guid.Parse((ReadOnlySpan<char>)Context.User.Claims.First(claim =>claim.Type==ClaimTypes.Sid).Value): null;
 }
 <div class="row">
-    <div class="col col-7">
+    <div class="col col-6 col-wrapper-description-room">
         <h1>Кімната: №@Model.Room.Name</h1>
         <img class="card-img-room" src="~/img/Content/@(Model.Room.PhotoUrl ?? "no-image.jpg")" alt="Card image cap">
         <h2>@Model.Room.Description</h2>
     </div>
-    <div class="col col-5">
-        <form>
-            Бронювання кімнати на місяць
-            <select name="month">
+    <div class="col col-6">
+        <form style="display: flex; align-items: center;">
+            <b>Бронювання кімнати на місяць</b>
+            <select class="form-select" name="month">
                 @for (int i = 1; i <= 12; i++)
                 {
                     if (i == Model.Month)
@@ -26,8 +26,8 @@
                         <option value="@i">@(i.ToString("D2"))</option>
                     }
                 }
-            </select> року
-            <select name="year">
+            </select> <b>року</b>
+            <select class="form-select" name="year">
                 @for (int i = DateTime.Now.Year; i <= DateTime.Today.Year + 1; i++)
                 {
                     if (i == Model.Year)
@@ -52,14 +52,15 @@
            int startDayOffset = ((int)firstDayOfMonth.DayOfWeek + 6) % 7; 
        }
        <div class="calendar">
-           @for(int i = 0; i < startDayOffset; ++i)
+          
+           @for (int i = 0; i < startDayOffset; ++i)
            {
                <div class="calendar-item"></div>
            }
-       
-           @for(int i = 1; i <= DateTime.DaysInMonth(Model.Year, Model.Month); ++i)
+
+           @for (int i = 1; i <= DateTime.DaysInMonth(Model.Year, Model.Month); ++i)
            {
-               DateTime date = new DateTime(Model.Year, Model.Month, i);                
+               DateTime date = new DateTime(Model.Year, Model.Month, i);
                itemClass = (date < DateTime.Today) ? "item-past" : "item-free";
                var reservation = Model.Room.Reservations.FirstOrDefault(r => r.Date == date);
                bool isReserved = reservation != null;
@@ -70,7 +71,7 @@
                <div class="calendar-item @itemClass @authClass">
                    @if (isReserved && isOwn)
                    {
-                       <b data-type="drop-reserve-room" 
+                       <b data-type="drop-reserve-room"
                           data-room-reserve-date="@date"
                           data-reserve-id="@(reservation!.Id)" title="Скасувати замовлення">@i</b>
                    }
@@ -89,7 +90,7 @@
                    }
                </div>
            }
-           @for(int i = (allDays + startDayOffset) % 7; i < 7 && i != 0; ++i)
+           @for (int i = (allDays + startDayOffset) % 7; i < 7 && i != 0; ++i)
            {
                <div class="calendar-item"></div>
            }

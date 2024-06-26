@@ -32,7 +32,7 @@
                     @if (isAuthenticated)
                     {
                         <img class="size-40 rounded-circle" src="/img/avatars/@(avatar=="" ? "no-avatar.png":avatar)" alt="avatars"/>
-                        <a class="exit" asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-left"></i>Вийти</a>
+                        <a class="exit" asp-controller="Home" asp-route-logout="true" asp-action="Index"><i class="bi bi-box-arrow-right"></i>Вийти</a>
                     }
                     else
                     {
